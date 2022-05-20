@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>节流与防抖</title>
+      <link href="/2022/05/20/jie-liu-yu-fang-dou/"/>
+      <url>/2022/05/20/jie-liu-yu-fang-dou/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、节流"><a href="#一、节流" class="headerlink" title="一、节流"></a>一、节流</h4><ul><li><p>概念：在规定的间隔时间范围内不会重复触发回调，只有大于这个时间间隔才会触发回调，把频繁触发变为少量触发。</p></li><li><p>类似于技能CD。</p></li><li><p>应用：点击按钮，轮播图点击左右箭头。</p></li><li><p>插件lodash.js，它里面封装了函数的防抖与节流业务。</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>计数器：<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token number">0</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span><span class="token operator">&lt;</span>button<span class="token operator">&gt;</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span><span class="token comment">// 获取元素</span><span class="token keyword">let</span> span <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">)</span><span class="token keyword">let</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token comment">// 控制节流阀是否开启或关闭</span><span class="token keyword">let</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token comment">// 需求：在一秒以内，不管点击按钮多少次，计数器数值只能+1</span>btn<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>        flag <span class="token operator">=</span> <span class="token boolean">false</span>        timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>        count<span class="token operator">++</span>    span<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> count        flag <span class="token operator">=</span> <span class="token boolean">true</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><h4 id="二、防抖"><a href="#二、防抖" class="headerlink" title="二、防抖"></a>二、防抖</h4><ul><li><p>概念：前面的所有的触发都被取消，最后一次执行在规定的时间之后才会触发，也就是说如果连续快速的触发，只会执行一次。</p></li><li><p>类似于LOL回城被打断。</p></li><li><p>应用：输入框搜索。</p></li><li><p>插件lodash.js，它里面封装了函数的防抖与节流业务。</p><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;input type="text" @input="inputFn" /&gt;data () {return {timer: null}},methods: {inputFn () {if (this.timer) {clearTimeout(this.timer)}this.timer = setTimeout(() =&gt; {// 发送网络请求}, 3000)}}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 性能优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>测试</title>
       <link href="/2022/03/21/hello-world/"/>
       <url>/2022/03/21/hello-world/</url>
