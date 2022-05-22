@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>节点操作</title>
+      <link href="/2022/05/22/jie-dian-cao-zuo/"/>
+      <url>/2022/05/22/jie-dian-cao-zuo/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、节点概述"><a href="#一、节点概述" class="headerlink" title="一、节点概述"></a>一、节点概述</h4><ul><li>网页中的所有内容都是节点(标签、属性、文本、注释等)，使用node表示。HTML、DOM树中的所有节点均可通过JavaScript进行访问，所有HTML元素(节点)均可被修改，也可以创建或删除。</li><li>利用DOM树可以把节点划分为不同的层级关系，常见的是父子兄层级关系。</li><li>一般地，节点至少拥有nodeType(节点类型)、nodeName(节点名称)、nodeValue(节点值)这三个基本属性。在实际开发中，节点操作主要操作的是元素节点。<ul><li>元素节点nodeType为1。</li><li>属性节点nodeType为2。</li><li>文本节点nodeType为3（文本节点包含文字、空格、换行等）。</li></ul></li></ul><h4 id="二、获取父节点"><a href="#二、获取父节点" class="headerlink" title="二、获取父节点"></a>二、获取父节点</h4><p><strong>1.</strong><code>子元素.parentNode</code></p><p>返回某节点的父节点，得到的是离元素最近的父级节点(即亲爸爸)。如果找不到父节点，就返回为null。</p><h4 id="三、获取子节点-伪数组"><a href="#三、获取子节点-伪数组" class="headerlink" title="三、获取子节点(伪数组)"></a>三、获取子节点(伪数组)</h4><p><strong>1.</strong><code>父节点.children</code></p><p>返回所有的子元素节点，只返回子元素节点，其余节点不返回。</p><p>返回第一个子元素节点的写法：<code>父节点.children[0]</code></p><p>返回最后一个子元素节点的写法是：<code>父节点.children[parentNode.children.length - 1]</code></p><h4 id="四、获取兄弟节点"><a href="#四、获取兄弟节点" class="headerlink" title="四、获取兄弟节点"></a>四、获取兄弟节点</h4><ul><li>获取下一个兄弟节点：<code>元素.nextElementSibling</code><ul><li>返回当前元素的下一个兄弟元素节点，如果找不到则返回null。</li></ul></li><li>获取上一个兄弟节点：<code>元素.previousElementSibling</code><ul><li>返回当前元素的上一个兄弟元素节点，如果找不到则返回null。</li></ul></li></ul><h4 id="五、创建节点-x2F-添加节点"><a href="#五、创建节点-x2F-添加节点" class="headerlink" title="五、创建节点/添加节点"></a>五、创建节点/添加节点</h4><ul><li>步骤：先创建节点再添加节点。</li><li>创建节点语法格式：<code>document.createElement('标签名')</code></li><li>添加节点：<ul><li>在<strong>最后面追加</strong>节点：<code>父元素.appendChild(子元素)</code></li><li>在<strong>某个子元素的前面追加</strong>节点：<code>父元素.insertBefore(要插入的元素, 在哪个元素前面)</code></li></ul></li></ul><h4 id="六、删除节点"><a href="#六、删除节点" class="headerlink" title="六、删除节点"></a>六、删除节点</h4><p>1.<code>父元素.removeChild(要删除的元素)</code></p><p>删除节点必须通过父元素删除。</p><h4 id="七、复制节点"><a href="#七、复制节点" class="headerlink" title="七、复制节点"></a>七、复制节点</h4><p>1.<code>元素.cloneNode(布尔值)</code></p><ul><li>默认是fales，是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点。</li><li>若为true，是深度拷贝，会复制节点本身以及里面所有的子节点。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>事件委托和排他思想</title>
       <link href="/2022/05/21/shi-jian-wei-tuo-he-pai-ta-si-xiang/"/>
       <url>/2022/05/21/shi-jian-wei-tuo-he-pai-ta-si-xiang/</url>
