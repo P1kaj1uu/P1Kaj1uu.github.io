@@ -4,10 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="节点操作, 不见水星记">
-    <meta name="description" content="一、节点概述
-网页中的所有内容都是节点(标签、属性、文本、注释等)，使用node表示。HTML、DOM树中的所有节点均可通过JavaScript进行访问，所有HTML元素(节点)均可被修改，也可以创建或删除。
-利用DOM树可以把节点划分为不">
+    <meta name="keywords" content="浅拷贝与深拷贝, 不见水星记">
+    <meta name="description" content="一、数据类型存储
+在JavaScript中存在两大数据类型：基本类型、引用类型。
+
+基本数据类型存放在栈中，是一段简单的数据段，数据大小确定，内存空间大小可以分配，是直接按值存放的，可以按值访问。
+
+引用数据类型存放在堆中，变量在栈中保存的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>节点操作 | 不见水星记</title>
+    <title>浅拷贝与深拷贝 | 不见水星记</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/awesome/css/all.min.css">
@@ -317,7 +320,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">节点操作</h1>
+                    <h1 class="description center-align post-title">浅拷贝与深拷贝</h1>
                 </div>
             </div>
         </div>
@@ -433,8 +436,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
                             </a>
                         
                     </div>
@@ -472,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    567
+                    1k
                 </div>
                 
 
@@ -497,47 +500,184 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、节点概述"><a href="#一、节点概述" class="headerlink" title="一、节点概述"></a>一、节点概述</h4><ul>
-<li>网页中的所有内容都是节点(标签、属性、文本、注释等)，使用node表示。HTML、DOM树中的所有节点均可通过JavaScript进行访问，所有HTML元素(节点)均可被修改，也可以创建或删除。</li>
-<li>利用DOM树可以把节点划分为不同的层级关系，常见的是父子兄层级关系。</li>
-<li>一般地，节点至少拥有nodeType(节点类型)、nodeName(节点名称)、nodeValue(节点值)这三个基本属性。在实际开发中，节点操作主要操作的是元素节点。<ul>
-<li>元素节点nodeType为1。</li>
-<li>属性节点nodeType为2。</li>
-<li>文本节点nodeType为3（文本节点包含文字、空格、换行等）。</li>
-</ul>
-</li>
-</ul>
-<h4 id="二、获取父节点"><a href="#二、获取父节点" class="headerlink" title="二、获取父节点"></a>二、获取父节点</h4><p><strong>1.</strong><code>子元素.parentNode</code></p>
-<p>返回某节点的父节点，得到的是离元素最近的父级节点(即亲爸爸)。如果找不到父节点，就返回为null。</p>
-<h4 id="三、获取子节点-伪数组"><a href="#三、获取子节点-伪数组" class="headerlink" title="三、获取子节点(伪数组)"></a>三、获取子节点(伪数组)</h4><p><strong>1.</strong><code>父节点.children</code></p>
-<p>返回所有的子元素节点，只返回子元素节点，其余节点不返回。</p>
-<p>返回第一个子元素节点的写法：<code>父节点.children[0]</code></p>
-<p>返回最后一个子元素节点的写法是：<code>父节点.children[parentNode.children.length - 1]</code></p>
-<h4 id="四、获取兄弟节点"><a href="#四、获取兄弟节点" class="headerlink" title="四、获取兄弟节点"></a>四、获取兄弟节点</h4><ul>
-<li>获取下一个兄弟节点：<code>元素.nextElementSibling</code><ul>
-<li>返回当前元素的下一个兄弟元素节点，如果找不到则返回null。</li>
-</ul>
-</li>
-<li>获取上一个兄弟节点：<code>元素.previousElementSibling</code><ul>
-<li>返回当前元素的上一个兄弟元素节点，如果找不到则返回null。</li>
-</ul>
-</li>
-</ul>
-<h4 id="五、创建节点-x2F-添加节点"><a href="#五、创建节点-x2F-添加节点" class="headerlink" title="五、创建节点/添加节点"></a>五、创建节点/添加节点</h4><ul>
-<li>步骤：先创建节点再添加节点。</li>
-<li>创建节点语法格式：<code>document.createElement('标签名')</code></li>
-<li>添加节点：<ul>
-<li>在<strong>最后面追加</strong>节点：<code>父元素.appendChild(子元素)</code></li>
-<li>在<strong>某个子元素的前面追加</strong>节点：<code>父元素.insertBefore(要插入的元素, 在哪个元素前面)</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="六、删除节点"><a href="#六、删除节点" class="headerlink" title="六、删除节点"></a>六、删除节点</h4><p>1.<code>父元素.removeChild(要删除的元素)</code></p>
-<p>删除节点必须通过父元素删除。</p>
-<h4 id="七、复制节点"><a href="#七、复制节点" class="headerlink" title="七、复制节点"></a>七、复制节点</h4><p>1.<code>元素.cloneNode(布尔值)</code></p>
+                <h4 id="一、数据类型存储"><a href="#一、数据类型存储" class="headerlink" title="一、数据类型存储"></a>一、数据类型存储</h4><ul>
+<li><p>在JavaScript中存在两大数据类型：基本类型、引用类型。</p>
 <ul>
-<li>默认是fales，是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点。</li>
-<li>若为true，是深度拷贝，会复制节点本身以及里面所有的子节点。</li>
+<li><p>基本数据类型存放在栈中，是一段简单的数据段，<strong>数据大小确定，内存空间大小可以分配</strong>，是直接按值存放的，可以<strong>按值访问</strong>。</p>
+</li>
+<li><p>引用数据类型存放在堆中，变量在栈中保存的是<strong>指向堆内存的地址值</strong>，这个地址值指向对应的对象类型，访问堆内存中的对象是<strong>通过地址值访问</strong>的。</p>
+<img src="/2022/05/22/qian-kao-bei-yu-shen-kao-bei/%E5%A0%86%E6%A0%88.png" style="zoom:60%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="二、浅拷贝"><a href="#二、浅拷贝" class="headerlink" title="二、浅拷贝"></a>二、浅拷贝</h4><ul>
+<li><p>浅拷贝，指的是创建新的数据，这个数据有着原始数据属性值的一份精确拷贝。</p>
+</li>
+<li><p>如果属性是基本类型，拷贝的就是基本类型的值。如果属性是引用类型，拷贝的就是内存地址。</p>
+</li>
+<li><p>即浅拷贝是拷贝一层。</p>
+</li>
+<li><p>下面简单实现一个浅拷贝：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">shallowClone</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> newObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> prop <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>prop<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			newObj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> newObj
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在JavaScript中，<em>存在浅拷贝的现象</em>有：</p>
+<ul>
+<li><code>Object.assign()</code></li>
+<li><code>Array.prototype.slice()</code></li>
+<li><code>Array.prototype.concat()</code></li>
+<li><code>使用扩展运算符实现的复制</code></li>
+</ul>
+</li>
+<li><p><strong>Object.assign()</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">nature</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'smart'</span><span class="token punctuation">,</span> <span class="token string">'good'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">names</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">name1</span><span class="token operator">:</span> <span class="token string">'fx'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">name2</span><span class="token operator">:</span> <span class="token string">'xka'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">love</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'fx is a great girl'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> newObj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> fxObj<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>slice()</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> fxArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'One'</span><span class="token punctuation">,</span> <span class="token string">'Two'</span><span class="token punctuation">,</span> <span class="token string">'Three'</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> fxArrs <span class="token operator">=</span> fxArr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+fxArrs<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'love'</span>
+consloe<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fxArr<span class="token punctuation">)</span>	<span class="token comment">// ['One', 'Two', 'Three']</span>
+consloe<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fxArrs<span class="token punctuation">)</span>	<span class="token comment">// ['One', 'love', 'Three']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p><strong>concat()</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> fxArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'One'</span><span class="token punctuation">,</span> <span class="token string">'Two'</span><span class="token punctuation">,</span> <span class="token string">'Three'</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> fxArrs <span class="token operator">=</span> fxArr<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+fxArrs<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'love'</span>
+consloe<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fxArr<span class="token punctuation">)</span>	<span class="token comment">// ['One', 'Two', 'Three']</span>
+consloe<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fxArrs<span class="token punctuation">)</span>	<span class="token comment">// ['One', 'love', 'Three']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p><strong>扩展运算符</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> fxArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'One'</span><span class="token punctuation">,</span> <span class="token string">'Two'</span><span class="token punctuation">,</span> <span class="token string">'Three'</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> fxArrs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>fxArr<span class="token punctuation">]</span>
+fxArrs<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'love'</span>
+consloe<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fxArr<span class="token punctuation">)</span>	<span class="token comment">// ['One', 'Two', 'Three']</span>
+consloe<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fxArrs<span class="token punctuation">)</span>	<span class="token comment">// ['One', 'love', 'Three']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="三、深拷贝"><a href="#三、深拷贝" class="headerlink" title="三、深拷贝"></a>三、深拷贝</h4><ul>
+<li><p>深拷贝开辟一个新的栈，两个对象相同，但是对应两个不同的地址，修改一个对象的属性，不会改变另一个对象的属性。</p>
+</li>
+<li><p><em>常见的深拷贝方式</em>有：</p>
+<ul>
+<li><code>_.cloneDeep()</code></li>
+<li><code>jQuery.extend()</code></li>
+<li><code>JSON.stringify()</code></li>
+<li><code>循环递归</code></li>
+</ul>
+</li>
+<li><p><strong>_.cloneDeep()</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> _ <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'lodash'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">f</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">g</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token literal-property property">c</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">cloneDeep</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">.</span>b<span class="token punctuation">.</span>f <span class="token operator">===</span> obj2<span class="token punctuation">.</span>b<span class="token punctuation">.</span>f<span class="token punctuation">)</span>	<span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p><strong>jQuery.extend()</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> $ <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'jquery'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">f</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">g</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token literal-property property">c</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> $<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> obj1<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">.</span>b<span class="token punctuation">.</span>f <span class="token operator">===</span> obj2<span class="token punctuation">.</span>b<span class="token punctuation">.</span>f<span class="token punctuation">)</span>	<span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p><strong>JSON.stringify()</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name1</span><span class="token operator">:</span> <span class="token string">'undefined'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">name2</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name3</span><span class="token operator">:</span>	<span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">)</span>	<span class="token comment">// 会忽略undefined、Symbol、函数</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span>	<span class="token comment">// { name: 'A' }</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p><strong>循环递归</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">deepClone</span> <span class="token punctuation">(</span>obj<span class="token punctuation">,</span> hash <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span> obj	<span class="token comment">// 如果是null或者undefined，就不进行拷贝操作</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Date</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">RegExp</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+    <span class="token comment">// 可能是对象或者普通的值，如果是函数的话不需要深拷贝</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj <span class="token operator">!==</span> <span class="token string">'Object'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> obj
+    <span class="token comment">// 如果是对象，就进行深拷贝</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>hash<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> hash<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+    <span class="token keyword">let</span> cloneObj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// 找到的是所属类型原型上的constructor，而原型上的constructor指向的是当前类本身</span>
+    hash<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> cloneObj<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 实现一个递归拷贝</span>
+            cloneObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> hash<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> cloneObj
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="四、区别"><a href="#四、区别" class="headerlink" title="四、区别"></a>四、区别</h4><ul>
+<li><p>浅拷贝只复制内存地址，而不复制对象本身，新旧对象还是共享同一块内存，修改对象属性会影响原对象。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 浅拷贝</span>
+<span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'init'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">arr</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj3 <span class="token operator">=</span> <span class="token function">shallowClone</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span>	<span class="token comment">// 一个浅拷贝方法</span>
+obj3<span class="token punctuation">.</span>name <span class="token operator">=</span> 'update‘
+obj3<span class="token punctuation">.</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span>	<span class="token comment">// 新旧对象还是共享同一块内存</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj1'</span><span class="token punctuation">,</span> obj1<span class="token punctuation">)</span>	<span class="token comment">// obj1 { name: 'init', arr: [1, [5, 6, 7], 4] }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj3'</span><span class="token punctuation">,</span> obj3<span class="token punctuation">)</span>	<span class="token comment">// obj3 { name: 'update', arr: [1, [5, 6, 7], 4] }</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p>深拷贝会另外创造一个一模一样的对象，新对象与原对象不共享内存，修改新对象不会改到原对象。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 深拷贝</span>
+<span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'init'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">arr</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj4 <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span>	<span class="token comment">// 一个深拷贝方法</span>
+obj4<span class="token punctuation">.</span>name <span class="token operator">=</span> 'update‘
+obj4<span class="token punctuation">.</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span>	<span class="token comment">// 新对象与原对象不共享内存</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj1'</span><span class="token punctuation">,</span> obj1<span class="token punctuation">)</span>	<span class="token comment">// obj1 { name: 'init', arr: [1, [2, 3], 4] }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'obj4'</span><span class="token punctuation">,</span> obj4<span class="token punctuation">)</span>	<span class="token comment">// obj4 { name: 'update', arr: [1, [5, 6, 7], 4] }</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p>当拷贝类型为引用类型时：</p>
+<ul>
+<li>浅拷贝是拷贝一层，属性为对象时，浅拷贝是复制，两个对象指向同一个地址。</li>
+<li>深拷贝是递归拷贝深层次，属性为对象时，深拷贝是新开栈，两个对象指向不同的地址。</li>
+</ul>
+</li>
 </ul>
 
                 
@@ -565,7 +705,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://igdragon.top/2022/05/22/jie-dian-cao-zuo/">http://igdragon.top/2022/05/22/jie-dian-cao-zuo/</a>
+                    <a href="http://igdragon.top/2022/05/22/qian-kao-bei-yu-shen-kao-bei/">http://igdragon.top/2022/05/22/qian-kao-bei-yu-shen-kao-bei/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -603,8 +743,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
                                 </a>
                             
                         </div>
@@ -800,9 +940,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/05/22/qian-kao-bei-yu-shen-kao-bei/">
                     <div class="card-image">
@@ -820,9 +961,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -835,6 +976,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -853,13 +995,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/21/shi-jian-wei-tuo-he-pai-ta-si-xiang/">
+                <a href="/2022/05/22/jie-dian-cao-zuo/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="事件委托和排他思想">
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="节点操作">
                         
-                        <span class="card-title">事件委托和排他思想</span>
+                        <span class="card-title">节点操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -870,7 +1012,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-22
                             </span>
                         <span class="publish-author">
                             
