@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-05-22T13:20:16.720Z</updated>
+  <updated>2022-05-23T11:49:20.724Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,132 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpack优化</title>
+    <link href="https://igdragon.top/2022/05/23/webpack-you-hua/"/>
+    <id>https://igdragon.top/2022/05/23/webpack-you-hua/</id>
+    <published>2022-05-23T10:07:01.000Z</published>
+    <updated>2022-05-23T11:49:20.724Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、使用webpack优化前端性能方法&quot;&gt;&lt;a href=&quot;#一、使用webpack优化前端性能方法&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="性能优化" scheme="https://igdragon.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图片优化</title>
+    <link href="https://igdragon.top/2022/05/23/tu-pian-you-hua/"/>
+    <id>https://igdragon.top/2022/05/23/tu-pian-you-hua/</id>
+    <published>2022-05-23T10:06:40.000Z</published>
+    <updated>2022-05-23T11:09:39.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、常见的图片格式&quot;&gt;&lt;a href=&quot;#一、常见的图片格式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="性能优化" scheme="https://igdragon.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CDN</title>
+    <link href="https://igdragon.top/2022/05/23/cdn/"/>
+    <id>https://igdragon.top/2022/05/23/cdn/</id>
+    <published>2022-05-23T10:05:48.000Z</published>
+    <updated>2022-05-23T10:52:30.512Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、CDN的概念&quot;&gt;&lt;a href=&quot;#一、CDN的概念&quot; class=&quot;headerlink&quot; title=&quot;一、CDN的概念&quot;&gt;&lt;/a&gt;一、CDN的概念&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;概念：CDN（Content Delivery</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="性能优化" scheme="https://igdragon.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>懒加载</title>
+    <link href="https://igdragon.top/2022/05/23/lan-jia-zai/"/>
+    <id>https://igdragon.top/2022/05/23/lan-jia-zai/</id>
+    <published>2022-05-23T10:05:25.000Z</published>
+    <updated>2022-05-23T12:01:32.980Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、懒加载的概念&quot;&gt;&lt;a href=&quot;#一、懒加载的概念&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="性能优化" scheme="https://igdragon.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>减少回流与重绘</title>
+    <link href="https://igdragon.top/2022/05/23/jian-shao-hui-liu-yu-chong-hui/"/>
+    <id>https://igdragon.top/2022/05/23/jian-shao-hui-liu-yu-chong-hui/</id>
+    <published>2022-05-23T10:05:00.000Z</published>
+    <updated>2022-05-23T10:22:54.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、回流-x2F-重排&quot;&gt;&lt;a href=&quot;#一、回流-x2F-重排&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="性能优化" scheme="https://igdragon.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>浅拷贝与深拷贝</title>
