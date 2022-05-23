@@ -4,8 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="不见水星记">
-    <meta name="description" content="不见水星记">
+    <meta name="keywords" content="节流与防抖, 不见水星记">
+    <meta name="description" content="一、节流
+概念：在规定的间隔时间范围内不会重复触发回调，只有大于这个时间间隔才会触发回调，把频繁触发变为少量触发。
+
+类似于技能CD。
+
+应用：点击按钮，轮播图点击左右箭头。
+
+插件lodash.js，它里面封装了函数的防抖与节流业务。
+&amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>不见水星记</title>
+    <title>节流与防抖 | 不见水星记</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/awesome/css/all.min.css">
@@ -315,7 +323,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">节流与防抖</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +437,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                <span class="chip bg-color">性能优化</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -443,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-23
+                    2022-05-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-23
+                    2022-05-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    311
                 </div>
                 
 
@@ -482,7 +503,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="一、节流"><a href="#一、节流" class="headerlink" title="一、节流"></a>一、节流</h4><ul>
+<li><p>概念：在规定的间隔时间范围内不会重复触发回调，只有大于这个时间间隔才会触发回调，把频繁触发变为少量触发。</p>
+</li>
+<li><p>类似于技能CD。</p>
+</li>
+<li><p>应用：点击按钮，轮播图点击左右箭头。</p>
+</li>
+<li><p>插件lodash.js，它里面封装了函数的防抖与节流业务。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>计数器：<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token number">0</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>button<span class="token operator">&gt;</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+<span class="token comment">// 获取元素</span>
+<span class="token keyword">let</span> span <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'span'</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token comment">// 控制节流阀是否开启或关闭</span>
+<span class="token keyword">let</span> flag <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment">// 需求：在一秒以内，不管点击按钮多少次，计数器数值只能+1</span>
+btn<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        flag <span class="token operator">=</span> <span class="token boolean">false</span>
+        timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span>
+    	span<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> count
+        flag <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="二、防抖"><a href="#二、防抖" class="headerlink" title="二、防抖"></a>二、防抖</h4><ul>
+<li><p>概念：前面的所有的触发都被取消，最后一次执行在规定的时间之后才会触发，也就是说如果连续快速的触发，只会执行一次。</p>
+</li>
+<li><p>类似于LOL回城被打断。</p>
+</li>
+<li><p>应用：输入框搜索。</p>
+</li>
+<li><p>插件lodash.js，它里面封装了函数的防抖与节流业务。</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;input type="text" @input="inputFn" /&gt;
+data () {
+	return {
+		timer: null
+	}
+},
+methods: {
+	inputFn () {
+		if (this.timer) {
+			clearTimeout(this.timer)
+		}
+		this.timer = setTimeout(() =&gt; {
+			// 发送网络请求
+		}, 3000)
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -508,7 +583,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://igdragon.top/image/index.html">https://igdragon.top/image/index.html</a>
+                    <a href="https://igdragon.top/2022/05/20/jie-liu-yu-fang-dou/">https://igdragon.top/2022/05/20/jie-liu-yu-fang-dou/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -545,7 +620,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                    <span class="chip bg-color">性能优化</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -739,18 +818,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/image/index.html">
+                <a href="/2022/05/21/shi-jian-wei-tuo-he-pai-ta-si-xiang/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="事件委托和排他思想">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">事件委托和排他思想</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -760,18 +838,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-21
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            P1Kaj1uu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -779,16 +868,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/image/index.html">
+                <a href="/2022/03/21/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="测试">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -799,7 +888,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-21
                             </span>
                         <span class="publish-author">
                             
@@ -809,7 +898,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>

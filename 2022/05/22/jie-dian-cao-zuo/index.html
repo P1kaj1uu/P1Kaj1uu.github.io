@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="不见水星记">
-    <meta name="description" content="不见水星记">
+    <meta name="keywords" content="节点操作, 不见水星记">
+    <meta name="description" content="一、节点概述
+网页中的所有内容都是节点(标签、属性、文本、注释等)，使用node表示。HTML、DOM树中的所有节点均可通过JavaScript进行访问，所有HTML元素(节点)均可被修改，也可以创建或删除。
+利用DOM树可以把节点划分为不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>不见水星记</title>
+    <title>节点操作 | 不见水星记</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/awesome/css/all.min.css">
@@ -315,7 +317,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">节点操作</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +431,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -443,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-23
+                    2022-05-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-23
+                    2022-05-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    567
                 </div>
                 
 
@@ -482,7 +497,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="一、节点概述"><a href="#一、节点概述" class="headerlink" title="一、节点概述"></a>一、节点概述</h4><ul>
+<li>网页中的所有内容都是节点(标签、属性、文本、注释等)，使用node表示。HTML、DOM树中的所有节点均可通过JavaScript进行访问，所有HTML元素(节点)均可被修改，也可以创建或删除。</li>
+<li>利用DOM树可以把节点划分为不同的层级关系，常见的是父子兄层级关系。</li>
+<li>一般地，节点至少拥有nodeType(节点类型)、nodeName(节点名称)、nodeValue(节点值)这三个基本属性。在实际开发中，节点操作主要操作的是元素节点。<ul>
+<li>元素节点nodeType为1。</li>
+<li>属性节点nodeType为2。</li>
+<li>文本节点nodeType为3（文本节点包含文字、空格、换行等）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="二、获取父节点"><a href="#二、获取父节点" class="headerlink" title="二、获取父节点"></a>二、获取父节点</h4><p><strong>1.</strong><code>子元素.parentNode</code></p>
+<p>返回某节点的父节点，得到的是离元素最近的父级节点(即亲爸爸)。如果找不到父节点，就返回为null。</p>
+<h4 id="三、获取子节点-伪数组"><a href="#三、获取子节点-伪数组" class="headerlink" title="三、获取子节点(伪数组)"></a>三、获取子节点(伪数组)</h4><p><strong>1.</strong><code>父节点.children</code></p>
+<p>返回所有的子元素节点，只返回子元素节点，其余节点不返回。</p>
+<p>返回第一个子元素节点的写法：<code>父节点.children[0]</code></p>
+<p>返回最后一个子元素节点的写法是：<code>父节点.children[parentNode.children.length - 1]</code></p>
+<h4 id="四、获取兄弟节点"><a href="#四、获取兄弟节点" class="headerlink" title="四、获取兄弟节点"></a>四、获取兄弟节点</h4><ul>
+<li>获取下一个兄弟节点：<code>元素.nextElementSibling</code><ul>
+<li>返回当前元素的下一个兄弟元素节点，如果找不到则返回null。</li>
+</ul>
+</li>
+<li>获取上一个兄弟节点：<code>元素.previousElementSibling</code><ul>
+<li>返回当前元素的上一个兄弟元素节点，如果找不到则返回null。</li>
+</ul>
+</li>
+</ul>
+<h4 id="五、创建节点-x2F-添加节点"><a href="#五、创建节点-x2F-添加节点" class="headerlink" title="五、创建节点/添加节点"></a>五、创建节点/添加节点</h4><ul>
+<li>步骤：先创建节点再添加节点。</li>
+<li>创建节点语法格式：<code>document.createElement('标签名')</code></li>
+<li>添加节点：<ul>
+<li>在<strong>最后面追加</strong>节点：<code>父元素.appendChild(子元素)</code></li>
+<li>在<strong>某个子元素的前面追加</strong>节点：<code>父元素.insertBefore(要插入的元素, 在哪个元素前面)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="六、删除节点"><a href="#六、删除节点" class="headerlink" title="六、删除节点"></a>六、删除节点</h4><p>1.<code>父元素.removeChild(要删除的元素)</code></p>
+<p>删除节点必须通过父元素删除。</p>
+<h4 id="七、复制节点"><a href="#七、复制节点" class="headerlink" title="七、复制节点"></a>七、复制节点</h4><p>1.<code>元素.cloneNode(布尔值)</code></p>
+<ul>
+<li>默认是fales，是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点。</li>
+<li>若为true，是深度拷贝，会复制节点本身以及里面所有的子节点。</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -508,7 +565,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://igdragon.top/image/index.html">https://igdragon.top/image/index.html</a>
+                    <a href="https://igdragon.top/2022/05/22/jie-dian-cao-zuo/">https://igdragon.top/2022/05/22/jie-dian-cao-zuo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -545,7 +602,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -739,18 +800,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/image/index.html">
+                <a href="/2022/05/22/qian-kao-bei-yu-shen-kao-bei/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="浅拷贝与深拷贝">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">浅拷贝与深拷贝</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -760,18 +820,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-22
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            P1Kaj1uu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -779,16 +850,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/image/index.html">
+                <a href="/2022/05/21/shi-jian-wei-tuo-he-pai-ta-si-xiang/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="事件委托和排他思想">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">事件委托和排他思想</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -799,17 +870,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            P1Kaj1uu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
