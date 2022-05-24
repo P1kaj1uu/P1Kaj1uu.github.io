@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-05-23T11:49:20.724Z</updated>
+  <updated>2022-05-24T11:09:11.178Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS执行机制</title>
+    <link href="https://igdragon.top/2022/05/24/js-zhi-xing-ji-zhi/"/>
+    <id>https://igdragon.top/2022/05/24/js-zhi-xing-ji-zhi/</id>
+    <published>2022-05-24T10:49:47.000Z</published>
+    <updated>2022-05-24T11:09:11.178Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、JS执行机制&quot;&gt;&lt;a href=&quot;#一、JS执行机制&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="笔记" scheme="https://igdragon.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>this的指向</title>
+    <link href="https://igdragon.top/2022/05/24/this-de-zhi-xiang/"/>
+    <id>https://igdragon.top/2022/05/24/this-de-zhi-xiang/</id>
+    <published>2022-05-24T10:49:13.000Z</published>
+    <updated>2022-05-24T11:36:11.537Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、this的指向分类&quot;&gt;&lt;a href=&quot;#一、this的指向分类&quot; class=&quot;headerlink&quot; title=&quot;一、this的指向分类&quot;&gt;&lt;/a&gt;一、this的指向分类&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="笔记" scheme="https://igdragon.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>闭包</title>
+    <link href="https://igdragon.top/2022/05/24/bi-bao/"/>
+    <id>https://igdragon.top/2022/05/24/bi-bao/</id>
+    <published>2022-05-24T10:12:37.000Z</published>
+    <updated>2022-05-24T11:32:13.492Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、作用域&quot;&gt;&lt;a href=&quot;#一、作用域&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="笔记" scheme="https://igdragon.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack优化</title>
