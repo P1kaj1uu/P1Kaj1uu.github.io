@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>ES6</title>
+      <link href="/2022/05/25/es6/"/>
+      <url>/2022/05/25/es6/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、ES6概述"><a href="#一、ES6概述" class="headerlink" title="一、ES6概述"></a>一、ES6概述</h4><ul><li>新增了变量的声明方式、解构赋值、模板字符串、简化对象写法、箭头函数、函数形参默认值、rest参数、拓展运算符、新增数据类型（Set、Map、Symbol、BigInt）、promise、async/await等。</li></ul><h4 id="二、var、let、const的区别"><a href="#二、var、let、const的区别" class="headerlink" title="二、var、let、const的区别"></a>二、var、let、const的区别</h4><table><thead><tr><th align="center">区别</th><th align="center">var</th><th align="center">let</th><th align="center">const</th></tr></thead><tbody><tr><td align="center">是否有块级作用域</td><td align="center">❌</td><td align="center">✔</td><td align="center">✔</td></tr><tr><td align="center">是否存在变量提升</td><td align="center">✔</td><td align="center">❌</td><td align="center">❌</td></tr><tr><td align="center">是否添加全局属性</td><td align="center">✔</td><td align="center">❌</td><td align="center">❌</td></tr><tr><td align="center">能否重复声明变量</td><td align="center">✔</td><td align="center">❌</td><td align="center">❌</td></tr><tr><td align="center">是否存在暂时性死区</td><td align="center">❌</td><td align="center">✔</td><td align="center">✔</td></tr><tr><td align="center">是否必须设置初始值</td><td align="center">❌</td><td align="center">❌</td><td align="center">✔</td></tr><tr><td align="center">能否改变指针指向</td><td align="center">✔</td><td align="center">✔</td><td align="center">❌</td></tr></tbody></table><h4 id="三、箭头函数与普通函数的区别"><a href="#三、箭头函数与普通函数的区别" class="headerlink" title="三、箭头函数与普通函数的区别"></a>三、箭头函数与普通函数的区别</h4><ul><li><strong>箭头函数比普通函数更加简洁</strong><ul><li>如果只有一个参数，可以省去参数的括号。</li><li>如果函数体的返回值只有一句，可以省略大括号，且必须省略return。</li></ul></li><li><strong>箭头函数没有自己的this</strong><ul><li>箭头函数不会创建自己的this， 所以它没有自己的this，它只会在自己作用域的上一层继承this。所以箭头函数中this的指向在它在定义时已经确定了，之后不会改变。</li></ul></li><li><strong>call()、apply()、bind()等方法不能改变箭头函数中this的指向</strong><ul><li>箭头函数的this指向要么是window，要么是它的外层。</li></ul></li><li><strong>箭头函数不能作为构造函数使用</strong><ul><li>箭头函数是ES6中的提出来的，它没有prototype，也没有自己的this指向，更不可以使用arguments参数，所以不能New一个箭头函数；new操作符的实现步骤如下：<ul><li>1.创建一个对象</li><li>2.将构造函数的作用域赋给新对象（也就是将对象的proto属性指向构造函数的prototype属性）</li><li>3.指向构造函数中的代码，构造函数中的this指向该对象（也就是为这个对象添加属性和方法）</li><li>4.返回新的对象，所以，上面的第二、三步，箭头函数都是没有办法执行的</li></ul></li></ul></li><li><strong>箭头函数没有自己的arguments</strong><ul><li>箭头函数没有自己的arguments对象。在箭头函数中访问arguments实际上获得的是它外层函数的arguments值。</li></ul></li><li><strong>箭头函数没有prototype</strong></li><li><strong>箭头函数不能用作Generator函数，不能使用yield关键字</strong></li></ul><h4 id="四、箭头函数的this指向"><a href="#四、箭头函数的this指向" class="headerlink" title="四、箭头函数的this指向"></a>四、箭头函数的this指向</h4><ul><li>箭头函数不同于传统JavaScript中的函数，箭头函数并没有属于⾃⼰的this，它所谓的this是捕获其所在上下⽂的 this 值，作为⾃⼰的 this 值，并且由于没有属于⾃⼰的this，所以是不会被new调⽤的，这个所谓的this也不会被改变。箭头函数的this指向外层函数的this。</li></ul><h4 id="五、扩展运算符的作用及使用场景"><a href="#五、扩展运算符的作用及使用场景" class="headerlink" title="五、扩展运算符的作用及使用场景"></a>五、扩展运算符的作用及使用场景</h4><ul><li><strong>对象扩展运算符</strong><ul><li>对象的扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中。扩展运算符对对象实例的拷贝属于浅拷贝。</li></ul></li><li><strong>数组扩展运算符</strong><ul><li>数组的扩展运算符可以将一个数组转为用逗号分隔的参数序列，且每次只能展开一层数组。</li></ul></li></ul><h4 id="六、对象与数组的解构"><a href="#六、对象与数组的解构" class="headerlink" title="六、对象与数组的解构"></a>六、对象与数组的解构</h4><ul><li>解构是 ES6 提供的一种新的提取数据的模式，这种模式能够从对象或数组里有针对性地拿到想要的数值。</li><li><strong>对象的解构</strong><ul><li>在解构对象时，是以属性的名称为匹配条件，来提取想要的数据的。</li></ul></li><li><strong>数组的解构</strong><ul><li>在解构数组时，以元素的位置为匹配条件来提取想要的数据的。</li></ul></li></ul><h4 id="七、模板语法"><a href="#七、模板语法" class="headerlink" title="七、模板语法"></a>七、模板语法</h4><ul><li>允许用**${}**的方式嵌入变量，优势有两个：<ul><li>在模板字符串中，空格、缩进、换行都会被保留，可以识别html代码。</li><li>模板字符串完全支持“运算”式的表达式，可以在${}里完成一些计算。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ES6 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>垃圾回收与内存泄漏</title>
+      <link href="/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/"/>
+      <url>/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、浏览器的垃圾回收机制"><a href="#一、浏览器的垃圾回收机制" class="headerlink" title="一、浏览器的垃圾回收机制"></a>一、浏览器的垃圾回收机制</h4><h5 id="1-垃圾回收的概念"><a href="#1-垃圾回收的概念" class="headerlink" title="1.垃圾回收的概念"></a>1.垃圾回收的概念</h5><ul><li><strong>JavaScript代码运行时，需要分配内存空间来储存变量和值。当变量不在参与运行时，就需要系统收回被占用的内存空间，这就是垃圾回收。</strong></li></ul><h5 id="2-垃圾回收的机制"><a href="#2-垃圾回收的机制" class="headerlink" title="2.垃圾回收的机制"></a>2.垃圾回收的机制</h5><ul><li>Javascript 具有自动垃圾回收机制，会定期对那些不再使用的变量、对象所占用的内存进行释放，原理就是找到不再使用的变量，然后释放掉其占用的内存。</li><li>JavaScript中存在两种变量：局部变量和全局变量。全局变量的生命周期会持续要页面卸载；而局部变量声明在函数中，它的生命周期从函数执行开始，直到函数执行结束，在这个过程中，局部变量会在堆或栈中存储它们的值，当函数执行结束后，这些局部变量不再被使用，它们所占有的空间就会被释放。</li><li>当局部变量被外部函数使用时，其中一种情况就是闭包，在函数执行结束后，函数外部的变量依然指向函数内部的局部变量，此时局部变量依然在被使用，所以不会回收。</li></ul><h5 id="3-垃圾回收的方式"><a href="#3-垃圾回收的方式" class="headerlink" title="3.垃圾回收的方式"></a>3.垃圾回收的方式</h5><ul><li>浏览器通常使用的垃圾回收方法有两种：<strong>标记清除</strong>，<strong>引用计数</strong>。<ul><li>标记清除<ul><li>标记清除是浏览器常见的垃圾回收方式，当变量进入执行环境时，就标记这个变量“进入环境”，被标记为“进入环境”的变量是不能被回收的，因为他们正在被使用。当变量离开环境时，就会被标记为“离开环境”，被标记为“离开环境”的变量会被内存释放。</li><li>垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记。然后，它会去掉环境中的变量以及被环境中的变量引用的标记。而在此之后再被加上标记的变量将被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了。最后。垃圾收集器完成内存清除工作，销毁那些带标记的值，并回收他们所占用的内存空间。</li></ul></li><li>引用计数<ul><li>另外一种垃圾回收机制就是引用计数，这个用的相对较少。引用计数就是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型赋值给该变量时，则这个值的引用次数就是1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数就减1。当这个引用次数变为0时，说明这个变量已经没有价值，因此，在在机回收期下次再运行时，这个变量所占有的内存空间就会被释放出来。</li><li>这种方法会引起循环引用的问题：例如： obj1和obj2通过属性进行相互引用，两个对象的引用次数都是2。当使用循环计数时，由于函数执行完后，两个对象都离开作用域，函数执行结束，obj1和obj2还将会继续存在，因此它们的引用次数永远不会是0，就会引起循环引用。</li></ul></li></ul></li></ul><h5 id="4-减少垃圾回收的方法"><a href="#4-减少垃圾回收的方法" class="headerlink" title="4.减少垃圾回收的方法"></a>4.减少垃圾回收的方法</h5><ul><li>虽然浏览器可以进行垃圾自动回收，但是当代码比较复杂时，垃圾回收所带来的代价比较大，所以<strong>应该尽量减少垃圾回收</strong>。</li><li><strong>对数组进行优化</strong><ul><li>在清空一个数组时，最简单的方法就是给其赋值为[ ]，但是与此同时会创建一个新的空对象，可以将数组的长度设置为0，以此来达到清空数组的目的。</li></ul></li><li><strong>对object进行优化</strong><ul><li>对象尽量复用，对于不再使用的对象，就将其设置为null，尽快被回收。</li></ul></li><li><strong>对函数进行优化</strong><ul><li>在循环中的函数表达式，如果可以复用，尽量放在函数的外面。</li></ul></li></ul><h4 id="二、导致内存泄漏的情况"><a href="#二、导致内存泄漏的情况" class="headerlink" title="二、导致内存泄漏的情况"></a>二、导致内存泄漏的情况</h4><ul><li>内存泄漏：<strong>无法垃圾回收就是内存泄露</strong>。</li><li>可能情况如下：<ul><li><strong>意外的全局变量</strong><ul><li>由于使用未声明的变量，而意外的创建了一个全局变量，而使这个变量一直留在内存中无法被回收。</li></ul></li><li><strong>被遗忘的计时器或回调函数</strong><ul><li>设置了 setInterval 定时器，而忘记取消它，如果循环函数有对外部变量的引用的话，那么这个变量会被一直留在内存中，而无法被回收。</li></ul></li><li><strong>脱离 DOM 的引用</strong><ul><li>获取一个 DOM 元素的引用，而后面这个元素被删除，由于一直保留了对这个元素的引用，所以它也无法被回收。</li></ul></li><li><strong>闭包</strong><ul><li>不合理的使用闭包，从而导致某些变量一直被留在内存当中。</li></ul></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JS执行机制</title>
       <link href="/2022/05/24/js-zhi-xing-ji-zhi/"/>
       <url>/2022/05/24/js-zhi-xing-ji-zhi/</url>

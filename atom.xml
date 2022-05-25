@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-05-24T11:09:11.178Z</updated>
+  <updated>2022-05-25T09:20:05.089Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6</title>
+    <link href="https://igdragon.top/2022/05/25/es6/"/>
+    <id>https://igdragon.top/2022/05/25/es6/</id>
+    <published>2022-05-25T08:46:57.000Z</published>
+    <updated>2022-05-25T09:20:05.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、ES6概述&quot;&gt;&lt;a href=&quot;#一、ES6概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="ES6" scheme="https://igdragon.top/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>垃圾回收与内存泄漏</title>
+    <link href="https://igdragon.top/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/"/>
+    <id>https://igdragon.top/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/</id>
+    <published>2022-05-25T08:46:31.000Z</published>
+    <updated>2022-05-25T08:59:11.398Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、浏览器的垃圾回收机制&quot;&gt;&lt;a href=&quot;#一、浏览器的垃圾回收机制&quot; class=&quot;headerlink&quot; title=&quot;一、浏览器的垃圾回收机制&quot;&gt;&lt;/a&gt;一、浏览器的垃圾回收机制&lt;/h4&gt;&lt;h5 id=&quot;1-垃圾回收的概念&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="JavaScript" scheme="https://igdragon.top/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JS执行机制</title>
