@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-05-27T01:50:12.445Z</updated>
+  <updated>2022-05-27T05:10:35.316Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器本地存储</title>
+    <link href="https://igdragon.top/2022/05/27/liu-lan-qi-ben-di-cun-chu/"/>
+    <id>https://igdragon.top/2022/05/27/liu-lan-qi-ben-di-cun-chu/</id>
+    <published>2022-05-27T04:26:53.000Z</published>
+    <updated>2022-05-27T05:10:35.316Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、浏览器本地存储方式及使用场景&quot;&gt;&lt;a href=&quot;#一、浏览器本地存储方式及使用场景&quot; class=&quot;headerlink&quot; title=&quot;一、浏览器本地存储方式及使用场景&quot;&gt;&lt;/a&gt;一、浏览器本地存储方式及使用场景&lt;/h4&gt;&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="浏览器原理" scheme="https://igdragon.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器同源策略</title>
+    <link href="https://igdragon.top/2022/05/27/liu-lan-qi-tong-yuan-ce-lue/"/>
+    <id>https://igdragon.top/2022/05/27/liu-lan-qi-tong-yuan-ce-lue/</id>
+    <published>2022-05-27T04:26:31.000Z</published>
+    <updated>2022-05-27T05:20:25.465Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、同源政策&quot;&gt;&lt;a href=&quot;#一、同源政策&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="浏览器原理" scheme="https://igdragon.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>版本管理</title>
@@ -97,7 +147,7 @@
     <link href="https://igdragon.top/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/"/>
     <id>https://igdragon.top/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/</id>
     <published>2022-05-25T08:46:31.000Z</published>
-    <updated>2022-05-25T08:59:11.398Z</updated>
+    <updated>2022-05-27T04:24:45.317Z</updated>
     
     
       
@@ -113,7 +163,7 @@
     <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="JavaScript" scheme="https://igdragon.top/tags/JavaScript/"/>
+    <category term="浏览器原理" scheme="https://igdragon.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
