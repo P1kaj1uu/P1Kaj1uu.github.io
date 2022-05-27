@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-05-26T13:01:51.511Z</updated>
+  <updated>2022-05-27T01:50:12.445Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>版本管理</title>
+    <link href="https://igdragon.top/2022/05/27/ban-ben-guan-li/"/>
+    <id>https://igdragon.top/2022/05/27/ban-ben-guan-li/</id>
+    <published>2022-05-27T01:25:21.000Z</published>
+    <updated>2022-05-27T01:50:12.445Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、前端工程化&quot;&gt;&lt;a href=&quot;#一、前端工程化&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端工程化" scheme="https://igdragon.top/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>Vuex</title>
