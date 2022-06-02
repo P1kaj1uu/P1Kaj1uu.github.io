@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-05-27T05:10:35.316Z</updated>
+  <updated>2022-06-02T06:45:35.113Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目优化打包部署</title>
+    <link href="https://igdragon.top/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/"/>
+    <id>https://igdragon.top/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/</id>
+    <published>2022-06-02T05:55:41.000Z</published>
+    <updated>2022-06-02T06:45:35.113Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、项目优化&quot;&gt;&lt;a href=&quot;#一、项目优化&quot; class=&quot;headerlink&quot; title=&quot;一、项目优化&quot;&gt;&lt;/a&gt;一、项目优化&lt;/h4&gt;&lt;h5 id=&quot;1-去掉打印console&quot;&gt;&lt;a href=&quot;#1-去掉打印console&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="笔记" scheme="https://igdragon.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器本地存储</title>
