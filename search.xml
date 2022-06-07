@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>面试心得(一)</title>
+      <link href="/2022/06/07/mian-shi-xin-de-yi/"/>
+      <url>/2022/06/07/mian-shi-xin-de-yi/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一、面试时间地点"><a href="#一、面试时间地点" class="headerlink" title="一、面试时间地点"></a>一、面试时间地点</h4><blockquote><p>2022年6月7日     在绵阳临园商务大夏进行第一次找实习的前端面试</p></blockquote><h4 id="二、面试问题归纳"><a href="#二、面试问题归纳" class="headerlink" title="二、面试问题归纳"></a>二、面试问题归纳</h4><ol><li>首先自我介绍</li><li>会Vue吗？会React吗？</li><li>Vue常见的指令？</li><li>Vue组件间的通信方式？</li><li>Vue-router路由的两种模式及区别？</li><li>ES6新增了哪些语法？</li><li>简述一下Promise？</li><li>async/await的使用场景方法？</li><li>GET和POST请求方式的区别？</li><li>WebSocket是什么及它的原理？</li><li>讲一下JavaScript的面向对象编程？</li></ol><h4 id="三、面试总结"><a href="#三、面试总结" class="headerlink" title="三、面试总结"></a>三、面试总结</h4><ul><li>面试易紧张</li><li>部分回答的描述不规范</li><li>面试易紧张有些知识点知道，但描述不出来，需巩固加强</li><li>不清楚JS的面向对象编程和WebSocket原理</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>项目优化打包部署</title>
       <link href="/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/"/>
       <url>/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/</url>
