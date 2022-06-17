@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>面试心得二</title>
+      <link href="/2022/06/17/mian-shi-xin-de-er/"/>
+      <url>/2022/06/17/mian-shi-xin-de-er/</url>
+      
+        <content type="html"><![CDATA[<ul><li>###########################</li><li>###########################</li><li>###########################</li><li>###########################</li><li>###########################</li><li>###########################</li><li>###########################</li></ul><h4 id="一、面试时间地点"><a href="#一、面试时间地点" class="headerlink" title="一、面试时间地点"></a>一、面试时间地点</h4><blockquote><p>2022年6月17日     在成都市郫都区龙湖成都时代天街17栋17楼1718-触及科技     笔试通过</p></blockquote><h4 id="二、笔试问题归纳"><a href="#二、笔试问题归纳" class="headerlink" title="二、笔试问题归纳"></a>二、笔试问题归纳</h4><ol><li>content-box和border-box计算盒子的宽高？</li><li>CSS样式权重问题，判断其颜色？</li><li>true和false的动态计算判断？</li><li>用CSS实现一个直角三角形？</li><li>使用addEventListener()为li元素绑定事件，输出点击li元素的输出顺序？</li><li>同步任务和异步任务结合的分析执行顺序？</li><li>宏任务和微任务结合分析其执行顺序？</li><li>宏任务、微任务、同步任务和异步任务结合分析其执行顺序？</li><li>apply()、call()和bind()、箭头函数结合判断this指向问题？</li><li>手写封装一个函数，实现数组元素升序排序和去重两个功能？</li><li>行内元素？块级元素？行内块元素？块级元素和行内块元素的区别？</li></ol><h4 id="三、面试总结"><a href="#三、面试总结" class="headerlink" title="三、面试总结"></a>三、面试总结</h4><ul><li>笔试面试通过</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>面试心得(一)</title>
       <link href="/2022/06/07/mian-shi-xin-de-yi/"/>
       <url>/2022/06/07/mian-shi-xin-de-yi/</url>
