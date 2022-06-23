@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-06-17T13:45:41.651Z</updated>
+  <updated>2022-06-23T06:58:49.697Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flexbox Froggy小游戏</title>
+    <link href="https://igdragon.top/2022/06/23/flexbox-froggy-xiao-you-xi/"/>
+    <id>https://igdragon.top/2022/06/23/flexbox-froggy-xiao-you-xi/</id>
+    <published>2022-06-23T06:11:20.000Z</published>
+    <updated>2022-06-23T06:58:49.697Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、Flex布局&quot;&gt;&lt;a href=&quot;#一、Flex布局&quot; class=&quot;headerlink&quot; title=&quot;一、Flex布局&quot;&gt;&lt;/a&gt;一、Flex布局&lt;/h3&gt;&lt;p&gt;采用 Flex 布局的元素，称为 Flex 容器（flex</summary>
+        
+      
+    
+    
+    
+    <category term="编程游戏" scheme="https://igdragon.top/categories/%E7%BC%96%E7%A8%8B%E6%B8%B8%E6%88%8F/"/>
+    
+    
+    <category term="CSS" scheme="https://igdragon.top/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>面试心得二</title>
@@ -492,31 +517,6 @@
         
         
     <summary type="html">&lt;h4 id=&quot;一、节点概述&quot;&gt;&lt;a href=&quot;#一、节点概述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="JavaScript" scheme="https://igdragon.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>事件委托和排他思想</title>
-    <link href="https://igdragon.top/2022/05/21/shi-jian-wei-tuo-he-pai-ta-si-xiang/"/>
-    <id>https://igdragon.top/2022/05/21/shi-jian-wei-tuo-he-pai-ta-si-xiang/</id>
-    <published>2022-05-21T12:11:31.000Z</published>
-    <updated>2022-05-21T13:14:45.455Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、事件委派&quot;&gt;&lt;a href=&quot;#一、事件委派&quot; class=&quot;headerlink&quot; title=&quot;一、事件委派&quot;&gt;&lt;/a&gt;一、事件委派&lt;/h4&gt;&lt;h5 id=&quot;1-理解DOM事件流&quot;&gt;&lt;a href=&quot;#1-理解DOM事件流&quot;</summary>
         
       
     
