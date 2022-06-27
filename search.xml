@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>浏览器渲染和原理</title>
+      <link href="/2022/06/27/liu-lan-qi-xuan-ran-he-yuan-li/"/>
+      <url>/2022/06/27/liu-lan-qi-xuan-ran-he-yuan-li/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、浏览器的渲染过程"><a href="#一、浏览器的渲染过程" class="headerlink" title="一、浏览器的渲染过程"></a>一、浏览器的渲染过程</h3><ul><li><img src="/2022/06/27/liu-lan-qi-xuan-ran-he-yuan-li/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B.png" style="zoom:60%;"></li><li><p>注意：这个过程是逐步完成的，为了更好的用户体验，渲染引擎将会尽可能早的将内容呈现到屏幕上，并不会等到所有的html 都解析完成之后再去构建和布局 render 树。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。</p></li><li><p><strong>渲染过程解读如下</strong>：</p><ul><li>首先解析收到的文档，根据文档定义构建一棵 DOM 树，DOM 树是由 DOM 元素及属性节点组成的。</li><li>然后对 CSS 进行解析，生成 CSSOM 规则树。</li><li>根据 DOM 树和 CSSOM 规则树构建渲染树。渲染树的节点被称为渲染对象，渲染对象是一个包含有颜色和大小等属性的矩形，渲染对象和 DOM 元素相对应，但这种对应关系不是一对一的，不可见的 DOM 元素不会被插入渲染树。还有一些 DOM元素对应几个可见对象，它们一般是一些具有复杂结构的元素，无法用一个矩形来描述。</li><li>当渲染对象被创建并添加到树中，它们并没有位置和大小，所以当浏览器生成渲染树以后，就会根据渲染树来进行布局（也可以叫做回流）。这一阶段浏览器要做的事情是要弄清楚各个节点在页面中的确切位置和大小。通常这一行为也被称为“自动重排”。</li><li>布局阶段结束后是绘制阶段，遍历渲染树并调用渲染对象的 paint 方法将它们的内容显示在屏幕上，绘制使用 UI 基础组件。</li></ul></li></ul><h3 id="二、浏览器渲染优化"><a href="#二、浏览器渲染优化" class="headerlink" title="二、浏览器渲染优化"></a>二、浏览器渲染优化</h3><h4 id="1-针对JavaScript"><a href="#1-针对JavaScript" class="headerlink" title="1.针对JavaScript"></a>1.针对JavaScript</h4><ul><li>JavaScript既会阻塞HTML的解析，也会阻塞CSS的解析。因此我们可以对JavaScript的加载方式进行改变，来进行优化<ul><li>尽量将JavaScript文件放在<strong>body的最后</strong></li><li><code>&lt;scipt&gt;</code>标签的引入资源方式有三种，有一种就是我们常用的直接引入，还有两种就是使用 <strong>async</strong> 属性和 <strong>defer</strong> 属性来异步引入，两者都是去异步加载外部的JS文件，<strong>不会阻塞DOM的解析</strong>（尽量使用异步加载）。三者的区别如下：<ul><li>script 立即停止页面渲染去加载资源文件，当资源加载完毕后立即执行js代码，js代码执行完毕后继续渲染页面</li><li>async 是在下载完成之后，立即异步加载，加载好后立即执行，多个带async属性的标签，不能保证加载的顺序</li><li>defer 是在下载完成之后，立即异步加载。加载好后，如果 DOM 树还没构建好，则先等 DOM 树解析好再执行；如果DOM树已经准备好，则立即执行。多个带defer属性的标签，按照顺序执行</li></ul></li></ul></li></ul><h4 id="2-针对CSS"><a href="#2-针对CSS" class="headerlink" title="2.针对CSS"></a>2.针对CSS</h4><ul><li>使用CSS有三种方式：使用link、@import、内联样式，其中link和@import都是导入外部样式。它们之间的区别：<ul><li>link：浏览器会派发一个新的线程(HTTP线程)去加载资源文件，与此同时GUI渲染线程会继续向下渲染代码</li><li>@import：GUI渲染线程会暂时停止渲染，去服务器加载资源文件，资源文件没有返回之前不会继续渲染(阻碍浏览器渲染)</li><li>style：GUI直接渲染</li><li>所以，在开发过程中，导入外部样式使用link，而不用@import。如果css少，尽可能采用内嵌样式，直接写在style标签中。</li></ul></li><li>外部样式如果长时间没有加载完毕，浏览器为了用户体验，会使用浏览器会默认样式，确保首次渲染的速度。所以<strong>CSS一般写在headr中</strong>，让浏览器尽快发送请求去获取css样式</li></ul><h4 id="3-针对DOM树、CSSOM规则树"><a href="#3-针对DOM树、CSSOM规则树" class="headerlink" title="3.针对DOM树、CSSOM规则树"></a>3.针对DOM树、CSSOM规则树</h4><ul><li>HTML文件的代码<strong>层级尽量不要太深</strong></li><li><strong>使用语义化的标签</strong>，来避免不标准语义化的特殊处理</li><li><strong>减少CSS代码的层级</strong>，因为选择器是从右向左进行解析的</li></ul><h4 id="4-减少回流与重绘"><a href="#4-减少回流与重绘" class="headerlink" title="4.减少回流与重绘"></a>4.减少回流与重绘</h4><ul><li>浏览器针对页面的回流与重绘，进行了自身的优化——渲染队列。浏览器会将所有的回流、重绘的操作放在一个队列中，当队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会对队列进行批量处理。这样就会让多次的回流、重绘变成一次回流重绘。</li><li><strong>CSS</strong>：<ul><li>避免设置多层内联样式</li><li>如果需要设置动画效果，最好使用absolute或者fixed，使元素脱离文档流，这样他们发生变化就不会影响其他元素</li><li>避免使用CSS表达式（例如：calc()）</li></ul></li><li><strong>JS</strong>：<ul><li>避免频繁操作样式，最好将样式列表定义为class并一次性更改class属性</li><li>避免频繁操作DOM，创建一个documentFragment，在它上面应用所有DOM操作，最后再把它添加到文档中</li><li>可以先为元素设置为不可见：display: none，操作结束后再把它显示出来。因为在display属性为none的元素上进行的DOM操作不会引发回流和重绘</li></ul></li></ul><h3 id="三、渲染过程中遇到-JS-文件如何处理"><a href="#三、渲染过程中遇到-JS-文件如何处理" class="headerlink" title="三、渲染过程中遇到 JS 文件如何处理"></a>三、渲染过程中遇到 JS 文件如何处理</h3><ul><li>JavaScript 的加载、解析与执行会阻塞文档的解析，也就是说，在构建 DOM 时，HTML 解析器若遇到了 JavaScript，那么它会暂停文档的解析，将控制权移交给 JavaScript 引擎，等 JavaScript 引擎运行完毕，浏览器再从中断的地方恢复继续解析文档。也就是说，如果想要首屏渲染的越快，就越不应该在首屏就加载 JS 文件，这也是都建议<strong>将 script 标签放在 body 标签底部</strong>的原因。当然在当下，并不是说 script 标签必须放在底部，因为你可以<strong>给 script 标签添加 defer 或者 async 属性</strong>。</li></ul><h3 id="四、文档的预解析"><a href="#四、文档的预解析" class="headerlink" title="四、文档的预解析"></a>四、文档的预解析</h3><ul><li>Webkit 和 Firefox 都做了这个优化，当执行 JavaScript 脚本时，另一个线程解析剩下的文档，并加载后面需要通过网络加载的资源。这种方式可以使资源并行加载从而使整体速度更快。需要注意的是，<strong>预解析并不改变 DOM 树</strong>，它将这个工作留给主解析过程，自己<strong>只解析外部资源的引用</strong>，比如外部脚本、样式表及图片。</li></ul><h3 id="五、CSS-如何阻塞文档解析"><a href="#五、CSS-如何阻塞文档解析" class="headerlink" title="五、CSS 如何阻塞文档解析"></a>五、CSS 如何阻塞文档解析</h3><ul><li>理论上，既然样式表不改变 DOM 树，也就没有必要停下文档的解析等待它们。然而，存在一个问题，JavaScript 脚本执行时可能在文档的解析过程中请求样式信息，如果样式还没有加载和解析，脚本将得到错误的值，显然这将会导致很多问题。所以如果浏览器尚未完成 CSSOM 的下载和构建，而我们却想在此时运行脚本，那么浏览器将延迟 JavaScript 脚本执行和文档的解析，直至其完成 CSSOM 的下载和构建。也就是说，在这种情况下，<strong>浏览器会先下载和构建 CSSOM，然后再执行 JavaScript，最后再继续文档的解析</strong>。</li></ul><h3 id="六、优化关键渲染路径"><a href="#六、优化关键渲染路径" class="headerlink" title="六、优化关键渲染路径"></a>六、优化关键渲染路径</h3><ul><li><strong>优化方法如下</strong>：<ul><li>对关键路径进行分析和特性描述：资源数、字节数、长度</li><li>最大限度减少关键资源的数量：删除它们，延迟它们的下载，将它们标记为异步等</li><li>优化关键字节数以缩短下载时间（往返次数）</li><li>优化其余关键资源的加载顺序：您需要尽早下载所有关键资产，以缩短关键路径长度</li></ul></li></ul><h3 id="七、阻塞渲染的情况"><a href="#七、阻塞渲染的情况" class="headerlink" title="七、阻塞渲染的情况"></a>七、阻塞渲染的情况</h3><ul><li>首先渲染的前提是生成渲染树，所以 HTML 和 CSS 肯定会阻塞渲染。如果你想渲染的越快，你越应该降低一开始需要渲染的文件大小，并且扁平层级，优化选择器。然后当浏览器在解析到 script 标签时，会暂停构建 DOM，完成后才会从暂停的地方重新开始。也就是说，如果你想首屏渲染的越快，就越不应该在首屏就加载 JS 文件，这也是都建议将 script 标签放在 body 标签底部的原因。当然在当下，并不是说 script 标签必须放在底部，因为你可以给 script 标签添加 defer 或者 async 属性。当 script 标签加上 defer 属性以后，表示该 JS 文件会并行下载，但是会放到 HTML 解析完成后顺序执行，所以对于这种情况你可以把 script 标签放在任意位置。对于没有任何依赖的 JS 文件可以加上 async 属性，表示 JS 文件下载和解析不会阻塞渲染。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 浏览器原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小程序开发优化</title>
+      <link href="/2022/06/27/xiao-cheng-xu-kai-fa-you-hua/"/>
+      <url>/2022/06/27/xiao-cheng-xu-kai-fa-you-hua/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、开发优化一"><a href="#一、开发优化一" class="headerlink" title="一、开发优化一"></a>一、开发优化一</h3><h4 id="1-使用Vant-Weapp"><a href="#1-使用Vant-Weapp" class="headerlink" title="1.使用Vant Weapp"></a>1.使用Vant Weapp</h4><h5 id="1-1-什么是Vant-Weapp"><a href="#1-1-什么是Vant-Weapp" class="headerlink" title="1.1 什么是Vant Weapp"></a>1.1 什么是Vant Weapp</h5><blockquote><p><a href="https://vant-contrib.gitee.io/vant-weapp/#/home">Vant Weapp官网链接</a></p></blockquote><ul><li>Vant Weapp是有赞前端团队开源的一套<strong>小程序UI组件库</strong>，助力开发者快速搭建小程序应用。它所使用的是<strong>MIT开源许可协议</strong>，对商业使用比较友好。</li></ul><h5 id="1-2-安装Vant-Weapp组件库"><a href="#1-2-安装Vant-Weapp组件库" class="headerlink" title="1.2 安装Vant Weapp组件库"></a>1.2 安装Vant Weapp组件库</h5><blockquote><p><a href="https://youzan.github.io/vant-weapp/#/quickstart">安装快速上手</a></p></blockquote><ul><li>在小程序项目中，安装组件库步骤如下：<ul><li><code>npm i @vant/weapp -S --production</code></li><li>构建npm包</li><li>修改app.json，将 app.json 中的 <code>"style": "v2"</code> 移除</li></ul></li></ul><h5 id="1-3-使用Vant-Weapp组件库"><a href="#1-3-使用Vant-Weapp组件库" class="headerlink" title="1.3 使用Vant Weapp组件库"></a>1.3 使用Vant Weapp组件库</h5><blockquote><p><a href="https://youzan.github.io/vant-weapp/#/quickstart">使用快速上手</a></p></blockquote><ul><li><p><strong>引入组件</strong></p><ul><li><p>以 Button 组件为例，只需要在<code>app.json</code>或<code>index.json</code>中配置 Button 对应的路径即可。</p></li><li><p>所有组件文档中的引入路径均以 npm 安装为例，如果你是通过下载源代码的方式使用 @vant/weapp，请将路径修改为项目中 @vant/weapp 所在的目录。</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 通过 npm 安装</span><span class="token comment">// app.json</span><span class="token string-property property">"usingComponents"</span><span class="token operator">:</span> <span class="token punctuation">{</span>  <span class="token string-property property">"van-button"</span><span class="token operator">:</span> <span class="token string">"@vant/weapp/button/index"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li><li><p><strong>使用组件</strong></p><ul><li><p>引入组件后，可以在 wxml 中直接使用组件</p><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>van-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>van-button</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul></li></ul><h5 id="1-4-使用css变量定制主题样式"><a href="#1-4-使用css变量定制主题样式" class="headerlink" title="1.4 使用css变量定制主题样式"></a>1.4 使用css变量定制主题样式</h5><blockquote><p><a href="https://youzan.github.io/vant-weapp/#/theme">定制主题</a></p></blockquote><ul><li>在app.wxss中，写入CSS变量，即可对全局生效。</li></ul><h3 id="二、开发优化二"><a href="#二、开发优化二" class="headerlink" title="二、开发优化二"></a>二、开发优化二</h3><h4 id="1-API的Promise化"><a href="#1-API的Promise化" class="headerlink" title="1.API的Promise化"></a>1.API的Promise化</h4><h5 id="1-1-什么是API的Promise化"><a href="#1-1-什么是API的Promise化" class="headerlink" title="1.1 什么是API的Promise化"></a>1.1 什么是API的Promise化</h5><ul><li><strong>API Promise化</strong>，指的是通过<strong>额外的配置</strong>，将官方提供的、基于回调函数的异步API，升级改造为<strong>基于Promise的异步API</strong>，从而提高代码的可读性、维护性，避免回调地狱的问题。</li></ul><h5 id="1-2-实现API的Promise化"><a href="#1-2-实现API的Promise化" class="headerlink" title="1.2 实现API的Promise化"></a>1.2 实现API的Promise化</h5><ul><li><p>在小程序中，实现API Promise化主要依赖于 <code>miniprogram-api-promise</code> 这个第三方的npm包。它的安装和使用步骤如下：</p><ul><li><p>安装：<code>npm install --save miniprogram-api-promise@1.0.4</code></p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在小程序入口文件中(app.js)，只需调用一次 promisifyAll() 方法</span><span class="token comment">// 即可实现异步API的Promise化</span><span class="token keyword">import</span> <span class="token punctuation">{</span> promisifyAll <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'miniprogram-api-promise'</span><span class="token keyword">const</span> wxp <span class="token operator">=</span> wx<span class="token punctuation">.</span>p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token function">promisifyAll</span><span class="token punctuation">(</span>wx<span class="token punctuation">,</span> wxp<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>注：安装完每个包之后需要重新构建，在对应文件夹下强制删除miniprogram_npm，然后在工具中重新构建npm。</p></li></ul></li></ul><h5 id="1-3-调用Promise化之后的异步API"><a href="#1-3-调用Promise化之后的异步API" class="headerlink" title="1.3 调用Promise化之后的异步API"></a>1.3 调用Promise化之后的异步API</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 页面的 .wxml 结构</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"danger"</span> bindtap<span class="token operator">=</span><span class="token string">"getInfo"</span><span class="token operator">&gt;</span>vant按钮<span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>button<span class="token operator">&gt;</span><span class="token comment">// 在页面的 .js 文件中，定义对应的事件处理函数</span><span class="token keyword">async</span> <span class="token function">getInfo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> res <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> wx<span class="token punctuation">.</span>p<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>        <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">'GET'</span><span class="token punctuation">,</span>        <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'https://www.escook.cn/api/get'</span><span class="token punctuation">,</span>        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'zs'</span><span class="token punctuation">,</span>            <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">20</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="三、开发优化三"><a href="#三、开发优化三" class="headerlink" title="三、开发优化三"></a>三、开发优化三</h3><h4 id="1-全局数据共享"><a href="#1-全局数据共享" class="headerlink" title="1.全局数据共享"></a>1.全局数据共享</h4><h5 id="1-1-小程序中的全局共享方案"><a href="#1-1-小程序中的全局共享方案" class="headerlink" title="1.1 小程序中的全局共享方案"></a>1.1 小程序中的全局共享方案</h5><img src="/2022/06/27/xiao-cheng-xu-kai-fa-you-hua/%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB.png" style="zoom:70%;"><h5 id="1-2-小程序全局数据共享MobX步骤"><a href="#1-2-小程序全局数据共享MobX步骤" class="headerlink" title="1.2 小程序全局数据共享MobX步骤"></a>1.2 小程序全局数据共享MobX步骤</h5><blockquote><p><a href="https://blog.csdn.net/m0_61631823/article/details/123929014?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8MobX&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-123929014.142%5Ev24%5Ehuaweicloudv2,157%5Ev15%5Enew_3&amp;spm=1018.2226.3001.4187">参考资料一</a></p></blockquote><blockquote><p><a href="https://blog.csdn.net/qq_45708377/article/details/122277394?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8MobX&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-5-122277394.142%5Ev24%5Ehuaweicloudv2,157%5Ev15%5Enew_3&amp;spm=1018.2226.3001.4187">参考资料二</a></p></blockquote><h3 id="四、开发优化四"><a href="#四、开发优化四" class="headerlink" title="四、开发优化四"></a>四、开发优化四</h3><h4 id="1-分包"><a href="#1-分包" class="headerlink" title="1.分包"></a>1.分包</h4><blockquote><p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html">分包加载官网链接</a></p></blockquote><h3 id="五、提高微信小程序的应用速度的方法"><a href="#五、提高微信小程序的应用速度的方法" class="headerlink" title="五、提高微信小程序的应用速度的方法"></a>五、提高微信小程序的应用速度的方法</h3><h4 id="1-小程序启动加载性能"><a href="#1-小程序启动加载性能" class="headerlink" title="1.小程序启动加载性能"></a>1.小程序启动加载性能</h4><ul><li>控制代码包的大小</li><li>分包加载</li><li>首屏体验（预请求，利用缓存，避免白屏，及时反馈）</li></ul><h4 id="2-小程序渲染性能"><a href="#2-小程序渲染性能" class="headerlink" title="2.小程序渲染性能"></a>2.小程序渲染性能</h4><ul><li>避免不当的使用setData</li><li>使用自定义组件<ul><li>自定义组件的更新并不会影响页面上其他元素的更新</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 微信小程序 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>小程序路由跳转</title>
       <link href="/2022/06/26/xiao-cheng-xu-lu-you-tiao-zhuan/"/>
       <url>/2022/06/26/xiao-cheng-xu-lu-you-tiao-zhuan/</url>
@@ -213,14 +263,14 @@
       
       <categories>
           
-          <category> 前端 </category>
+          <category> 浏览器原理 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 浏览器原理 </tag>
+            <tag> 浏览器 </tag>
             
         </tags>
       
@@ -238,14 +288,14 @@
       
       <categories>
           
-          <category> 前端 </category>
+          <category> 浏览器原理 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 浏览器原理 </tag>
+            <tag> 浏览器 </tag>
             
         </tags>
       
@@ -338,14 +388,14 @@
       
       <categories>
           
-          <category> 前端 </category>
+          <category> 浏览器原理 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 浏览器原理 </tag>
+            <tag> 浏览器 </tag>
             
         </tags>
       
@@ -358,7 +408,7 @@
       <link href="/2022/05/24/js-zhi-xing-ji-zhi/"/>
       <url>/2022/05/24/js-zhi-xing-ji-zhi/</url>
       
-        <content type="html"><![CDATA[<h4 id="一、JS执行机制"><a href="#一、JS执行机制" class="headerlink" title="一、JS执行机制"></a>一、JS执行机制</h4><ul><li><p>JS语言有个特点是单线程，即同一时间只能做一件事。单线程就意味着，所有的任务需要排队，前一个任务结束，才会执行后一个任务，可能造成页面渲染不连贯。</p></li><li><p>为了解决这个问题，利用多核CPU的计算能力，允许JS脚本创建多个线程，即<strong>同步</strong>和<strong>异步</strong>。</p></li><li><p>同步任务：</p><ul><li><strong>同步任务都在主线程上执行，形成一个执行栈。</strong></li><li>前一个任务结束后再去执行下一个任务，程序的执行顺序与任务的排列顺序是一致的同步的。</li><li>比如做饭的同步做法，我们要烧水煮饭，等水开了，再去切菜，炒菜。</li></ul></li><li><p>异步任务：</p><ul><li><p><strong>通过回调函数实现的</strong>，异步任务相关回调函数添加到任务队列中(任务队列也称为消息队列)。</p></li><li><p>在做一件事的同时，还可以去处理其他的事情。</p></li><li><p>比如做饭的异步做法，在烧水的同时，利用这段时间，去切菜，炒菜。</p><ul><li>异步任务分类：<ul><li>1.普通事件，如click、resize等。</li><li>2.资源加载，如load、error等。</li><li>3.定时器，包括setTimeout、setInterval等。</li></ul></li></ul></li></ul></li><li><p><strong>同步和异步本质的区别：在这条”流水线”上各个流程的执行顺序不同。</strong></p></li><li><p><strong>JS执行机制步骤：</strong></p><ul><li><p>由于主线程不断地重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环，即event loop。</p></li><li><p><input disabled="" type="checkbox"> 先执行执行栈中的同步任务。</p></li><li><p><input disabled="" type="checkbox"> 然后异步任务(回调函数)放任务队列中。</p></li><li><p><input disabled="" type="checkbox"> 一旦执行栈中的所有同步任务执行完毕，系统就会按照次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</p></li></ul><img src="/2022/05/24/js-zhi-xing-ji-zhi/%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6.png" style="zoom:60%;"></li></ul>]]></content>
+        <content type="html"><![CDATA[<h4 id="一、JS执行机制"><a href="#一、JS执行机制" class="headerlink" title="一、JS执行机制"></a>一、JS执行机制</h4><ul><li><p>JS语言有个特点是单线程，即同一时间只能做一件事。单线程就意味着，所有的任务需要排队，前一个任务结束，才会执行后一个任务，可能造成页面渲染不连贯。</p></li><li><p>为了解决这个问题，利用多核CPU的计算能力，允许JS脚本创建多个线程，即<strong>同步</strong>和<strong>异步</strong>。</p></li><li><p>同步任务：</p><ul><li><strong>同步任务都在主线程上执行，形成一个执行栈。</strong></li><li>前一个任务结束后再去执行下一个任务，程序的执行顺序与任务的排列顺序是一致的同步的。</li><li>比如做饭的同步做法，我们要烧水煮饭，等水开了，再去切菜，炒菜。</li></ul></li><li><p>异步任务：</p><ul><li><p><strong>通过回调函数实现的</strong>，异步任务相关回调函数添加到任务队列中(任务队列也称为消息队列)。</p></li><li><p>在做一件事的同时，还可以去处理其他的事情。</p></li><li><p>比如做饭的异步做法，在烧水的同时，利用这段时间，去切菜，炒菜。</p><ul><li>异步任务分类：<ul><li>1.普通事件，如click、resize等。</li><li>2.资源加载，如load、error等。</li><li>3.定时器，包括setTimeout、setInterval等。</li></ul></li></ul></li></ul></li><li><p><strong>同步和异步本质的区别：在这条”流水线”上各个流程的执行顺序不同。</strong></p></li><li><p><strong>JS执行机制步骤：</strong></p><ul><li><p>由于主线程不断地重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环，即event loop。</p></li><li><p><input disabled type="checkbox"> 先执行执行栈中的同步任务。</p></li><li><p><input disabled type="checkbox"> 然后异步任务(回调函数)放任务队列中。</p></li><li><p><input disabled type="checkbox"> 一旦执行栈中的所有同步任务执行完毕，系统就会按照次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</p></li></ul><img src="/2022/05/24/js-zhi-xing-ji-zhi/%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6.png" style="zoom:60%;"></li></ul>]]></content>
       
       
       <categories>
@@ -370,7 +420,7 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -395,7 +445,7 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> JavaScript </tag>
             
         </tags>
       
