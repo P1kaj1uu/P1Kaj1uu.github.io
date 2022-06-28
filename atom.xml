@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-06-27T03:12:16.740Z</updated>
+  <updated>2022-06-28T05:03:39.647Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,88 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Https协议</title>
+    <link href="https://igdragon.top/2022/06/28/https-xie-yi/"/>
+    <id>https://igdragon.top/2022/06/28/https-xie-yi/</id>
+    <published>2022-06-28T04:47:59.000Z</published>
+    <updated>2022-06-28T05:03:39.647Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、HTTPS协议概念&quot;&gt;&lt;a href=&quot;#一、HTTPS协议概念&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机网络" scheme="https://igdragon.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计网" scheme="https://igdragon.top/tags/%E8%AE%A1%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Http状态码</title>
+    <link href="https://igdragon.top/2022/06/28/http-zhuang-tai-ma/"/>
+    <id>https://igdragon.top/2022/06/28/http-zhuang-tai-ma/</id>
+    <published>2022-06-28T04:21:18.000Z</published>
+    <updated>2022-06-28T04:45:54.984Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、常见状态码&quot;&gt;&lt;a href=&quot;#一、常见状态码&quot; class=&quot;headerlink&quot; title=&quot;一、常见状态码&quot;&gt;&lt;/a&gt;一、常见状态码&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;类别&lt;/th&gt;
+&lt;th</summary>
+        
+      
+    
+    
+    
+    <category term="计算机网络" scheme="https://igdragon.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计网" scheme="https://igdragon.top/tags/%E8%AE%A1%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebSocket</title>
+    <link href="https://igdragon.top/2022/06/28/websocket/"/>
+    <id>https://igdragon.top/2022/06/28/websocket/</id>
+    <published>2022-06-28T04:20:50.000Z</published>
+    <updated>2022-06-28T04:28:03.501Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.runoob.com/html/html5-websocket.html&quot;&gt;菜鸟教程-WebSocket实时通信&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="计算机网络" scheme="https://igdragon.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计网" scheme="https://igdragon.top/tags/%E8%AE%A1%E7%BD%91/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器渲染和原理</title>
@@ -450,84 +532,6 @@
     
     
     <category term="JavaScript" scheme="https://igdragon.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>this的指向</title>
-    <link href="https://igdragon.top/2022/05/24/this-de-zhi-xiang/"/>
-    <id>https://igdragon.top/2022/05/24/this-de-zhi-xiang/</id>
-    <published>2022-05-24T10:49:13.000Z</published>
-    <updated>2022-06-27T02:42:56.966Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、this的指向分类&quot;&gt;&lt;a href=&quot;#一、this的指向分类&quot; class=&quot;headerlink&quot; title=&quot;一、this的指向分类&quot;&gt;&lt;/a&gt;一、this的指向分类&lt;/h4&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="JavaScript" scheme="https://igdragon.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>闭包</title>
-    <link href="https://igdragon.top/2022/05/24/bi-bao/"/>
-    <id>https://igdragon.top/2022/05/24/bi-bao/</id>
-    <published>2022-05-24T10:12:37.000Z</published>
-    <updated>2022-05-24T11:32:13.492Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、作用域&quot;&gt;&lt;a href=&quot;#一、作用域&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="笔记" scheme="https://igdragon.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>webpack优化</title>
-    <link href="https://igdragon.top/2022/05/23/webpack-you-hua/"/>
-    <id>https://igdragon.top/2022/05/23/webpack-you-hua/</id>
-    <published>2022-05-23T10:07:01.000Z</published>
-    <updated>2022-05-23T11:49:20.724Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、使用webpack优化前端性能方法&quot;&gt;&lt;a href=&quot;#一、使用webpack优化前端性能方法&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="性能优化" scheme="https://igdragon.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   

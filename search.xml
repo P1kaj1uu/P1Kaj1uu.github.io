@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>Https协议</title>
+      <link href="/2022/06/28/https-xie-yi/"/>
+      <url>/2022/06/28/https-xie-yi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、HTTPS协议概念"><a href="#一、HTTPS协议概念" class="headerlink" title="一、HTTPS协议概念"></a>一、HTTPS协议概念</h3><ul><li><strong>超文本传输安全协议</strong>（Hypertext Transfer Protocol Secure，简称：HTTPS）是一种通过计算机网络进行安全通信的传输协议。HTTPS经<strong>由HTTP进行通信</strong>，<strong>利用SSL/TLS来加密数据包</strong>。HTTPS的主要目的是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。HTTP协议采用明文传输信息，存在信息窃听、信息篡改和信息劫持的风险，而协议TLS/SSL具有身份验证、信息加密和完整性校验的功能，可以避免此类问题发生。安全层的主要职责就是对发起的HTTP请求的数据进行加密操作 和 对接收到的HTTP的内容进行解密操作。</li></ul><h3 id="二、HTTPS通信（握手）过程"><a href="#二、HTTPS通信（握手）过程" class="headerlink" title="二、HTTPS通信（握手）过程"></a>二、HTTPS通信（握手）过程</h3><ol><li>客户端向服务器发起请求，请求中包含使用的协议版本号、生成的一个随机数、以及客户端支持的加密方法。</li><li>服务器端接收到请求后，确认双方使用的加密方法、并给出服务器的证书、以及一个服务器生成的随机数。</li><li>客户端确认服务器证书有效后，生成一个新的随机数，并使用数字证书中的公钥，加密这个随机数，然后发给服 务器。并且还会提供一个前面所有内容的 hash 的值，用来供服务器检验。</li><li>服务器使用自己的私钥，来解密客户端发送过来的随机数。并提供前面所有内容的 hash 值来供客户端检验。</li><li>客户端和服务器端根据约定的加密方法使用前面的三个随机数，生成对话秘钥，以后的对话过程都使用这个秘钥来加密信息。</li></ol><h3 id="三、HTTPS的优缺点"><a href="#三、HTTPS的优缺点" class="headerlink" title="三、HTTPS的优缺点"></a>三、HTTPS的优缺点</h3><ul><li><strong>优点</strong>：<ul><li>使用HTTPS协议可以认证用户和服务器，确保数据发送到正确的客户端和服务器</li><li>使用HTTPS协议可以进行加密传输、身份认证，通信更加安全，防止数据在传输过程中被窃取、修改，确保数据安全性</li><li>HTTPS是现行架构下最安全的解决方案，虽然不是绝对的安全，但是大幅增加了中间人攻击的成本</li></ul></li><li><strong>缺点</strong>：<ul><li>HTTPS需要做服务器和客户端双方的加密个解密处理，耗费更多服务器资源，过程复杂</li><li>HTTPS协议握手阶段比较费时，增加页面的加载时间</li><li>SSL证书是收费的，功能越强大的证书费用越高</li><li>HTTPS连接服务器端资源占用高很多，支持访客稍多的网站需要投入更大的成本</li><li>SSL证书需要绑定IP，不能再同一个IP上绑定多个域名</li></ul></li></ul><h3 id="四、HTTPS如何保证安全"><a href="#四、HTTPS如何保证安全" class="headerlink" title="四、HTTPS如何保证安全"></a>四、HTTPS如何保证安全</h3><ul><li><p>结合两种加密⽅式，将对称加密的密钥使⽤⾮对称加密的公钥进⾏加密，然后发送出去，接收⽅使⽤私钥进⾏解密得到对称加密的密钥，然后双⽅可以使⽤对称加密来进⾏沟通。 此时⼜带来⼀个问题，中间⼈问题：如果此时在客户端和服务器之间存在⼀个中间⼈,这个中间⼈只需要把原本双⽅通信互发的公钥,换成⾃⼰的公钥,这样中间⼈就可以轻松解密通信双⽅所发送的所有数据。 所以这个时候需要⼀个安全的第三⽅颁发证书（CA），证明身份的身份，防⽌被中间⼈攻击。 证书中包括：签发者、证书⽤途、使⽤者公钥、使⽤者私钥、使⽤者的HASH算法、证书到期时间等。但是问题来了，如果中间⼈篡改了证书，那么身份证明是不是就⽆效了？这个证明就⽩买了，这个时候需要⼀个新的技术，数字签名。 数字签名就是⽤CA⾃带的HASH算法对证书的内容进⾏HASH得到⼀个摘要，再⽤CA的私钥加密，最终组成数字签名。当别⼈把他的证书发过来的时候,我再⽤同样的Hash算法,再次⽣成消息摘要，然后⽤CA的公钥对数字签名解密,得到CA创建的消息摘要,两者⼀⽐,就知道中间有没有被⼈篡改了。这个时候就能最⼤程度保证通信的安全了。 </p></li><li><p><strong>对称加密</strong>：</p><ul><li>即通信的双⽅都使⽤同⼀个秘钥进⾏加解密，对称加密虽然很简单性能也好，但是⽆法解决⾸次把秘钥发给对⽅的问题，很容易被⿊客拦截秘钥。</li></ul></li><li><p><strong>非对称加密</strong>：</p><blockquote><p>⾮对称加密虽然安全性更⾼,但是带来的问题就是速度很慢,影响性能。</p></blockquote><ul><li>私钥 + 公钥= 密钥对 </li><li>即⽤私钥加密的数据,只有对应的公钥才能解密,⽤公钥加密的数据,只有对应的私钥才能解密 </li><li>因为通信双⽅的⼿⾥都有⼀套⾃⼰的密钥对,通信之前双⽅会先把⾃⼰的公钥都先发给对⽅ </li><li>然后对⽅再拿着这个公钥来加密数据响应给对⽅,等到到了对⽅那⾥,对⽅再⽤⾃⼰的私钥进⾏解密</li></ul></li></ul><h3 id="五、TLS-x2F-SSL的工作原理"><a href="#五、TLS-x2F-SSL的工作原理" class="headerlink" title="五、TLS/SSL的工作原理"></a>五、TLS/SSL的工作原理</h3><ul><li><p><strong>TLS/SSL概述</strong></p><ul><li><p><strong>即安全传输层协议</strong></p></li><li><p>TLS/SSL的工作方式就是客户端使用非对称加密与服务器进行通信,实现身份的验证并协商对称加密使用的秘钥。对称加密算法采用协商秘钥对信息以及信息摘要进行加密通信,不同节点之间采用的对称秘钥不同,从而保证信息只能通信双方获取。</p></li><li><p>TLS/SSL全称安全传输层协议（Transport Layer Security）, 是介于TCP和HTTP之间的一层安全协议，不影响原有的TCP协议和HTTP协议，所以使用HTTPS基本上不需要对HTTP页面进行太多的改造。TLS/SSL的功能实现主要依赖三类基本算法。</p></li></ul></li><li><p><strong>TLS/SSL功能实现</strong></p><ul><li><strong>散列函数hash</strong>：基于散列函数验证信息的完整性</li><li><strong>对称加密</strong>：对称加密算法采用协商的秘钥对数据加密</li><li><strong>非对称加密</strong>：非对称加密实现身份认证和秘钥协商</li></ul></li></ul><h3 id="六、数字证书"><a href="#六、数字证书" class="headerlink" title="六、数字证书"></a>六、数字证书</h3><ul><li><strong>数字证书产生的原因</strong><ul><li>现在的方法也不一定是安全的，因为没有办法确定得到的公钥就一定是安全的公钥。可能存在一个中间人，截取了对方发给我们的公钥，然后将他自己的公钥发送给我们，当我们使用他的公钥加密后发送的信息，就可以被他用自己的私钥解密。然后他伪装成我们以同样的方法向对方发送信息，这样我们的信息就被窃取了，然而自己还不知道。为了解决这样的问题，可以使用数字证书。</li></ul></li><li><strong>数字证书概念及工作原理</strong><ul><li>首先使用一种 Hash 算法来对公钥和其他信息进行加密，生成一个信息摘要，然后让有公信力的认证中心（简称 CA ）用它的私钥对消息摘要加密，形成签名。最后将原始的信息和签名合在一起，称为数字证书。当接收方收到数字证书的时候，先根据原始信息使用同样的 Hash 算法生成一个摘要，然后使用公证处的公钥来对数字证书中的摘要进行解密，最后将解密的摘要和生成的摘要进行对比，就能发现得到的信息是否被更改了。这个方法最要的是认证中心的可靠性，一般浏览器里会内置一些顶层的认证中心的证书，相当于我们自动信任了他们，只有这样才能保证数据的安全。要进行对比，就能发现得到的信息是否被更改了。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计网 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Http状态码</title>
+      <link href="/2022/06/28/http-zhuang-tai-ma/"/>
+      <url>/2022/06/28/http-zhuang-tai-ma/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、常见状态码"><a href="#一、常见状态码" class="headerlink" title="一、常见状态码"></a>一、常见状态码</h3><table><thead><tr><th align="center">类别</th><th align="center">原因</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">1xx</td><td align="center">Informational(信息性状态码)</td><td align="center">接受的请求正在处理</td></tr><tr><td align="center">2xx</td><td align="center">Success(成功状态码)</td><td align="center">请求正常处理完毕</td></tr><tr><td align="center">3xx</td><td align="center">Redirection(重定向状态码)</td><td align="center">需要进行附加操作—完成请求</td></tr><tr><td align="center">4xx</td><td align="center">Client Error(客户端错误状态码)</td><td align="center">服务器无法处理请求</td></tr><tr><td align="center">5xx</td><td align="center">Server Error(服务器错误状态码)</td><td align="center">服务器处理请求出错</td></tr></tbody></table><h4 id="1-1xx"><a href="#1-1xx" class="headerlink" title="1. 1xx"></a>1. 1xx</h4><ul><li>代表请求已被接受,需要继续处理。这类响应是临时响应,只包含状态行和某些可选的响应头信息,并以空行结束。</li><li><strong>100</strong>:（客户端继续发送请求，这是临时响应）：这个临时响应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求完成后向客户端发送一个最终响应。</li><li><strong>101</strong>：服务器根据客户端的请求切换协议，主要用于websocket或http2升级。</li></ul><h4 id="2-2xx"><a href="#2-2xx" class="headerlink" title="2. 2xx"></a>2. 2xx</h4><ul><li>代表请求已成功被服务器接收、理解、并接受。</li><li><strong>200（成功）</strong>：请求已成功，请求所希望的响应头或数据体将随此响应返回。</li><li><strong>201（已创建）</strong>：请求成功并且服务器创建了新的资源。</li><li><strong>202（已创建）</strong>：服务器已经接收请求，但尚未处理。</li><li><strong>203（非授权信息）</strong>：服务器已成功处理请求，但返回的信息可能来自另一来源。</li><li><strong>204（无内容）</strong>：服务器成功处理请求，但没有返回任何内容。</li><li><strong>205（重置内容）</strong>：服务器成功处理请求，但没有返回任何内容。</li><li><strong>206（部分内容）</strong>：服务器成功处理了部分请求。</li></ul><h4 id="3-3xx"><a href="#3-3xx" class="headerlink" title="3. 3xx"></a>3. 3xx</h4><ul><li>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</li><li><strong>300（多种选择）</strong>：针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</li><li><strong>301（永久移动）</strong>：请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li><li><strong>302（临时移动）</strong>： 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li><li><strong>303（查看其他位置）</strong>：请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</li><li><strong>304 （not modified）</strong>：表示服务器允许访问资源，但因发生请求未满足条件的情况。</li><li><strong>305 （使用代理）</strong>： 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</li><li><strong>307 （临时重定向）</strong>： 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求,临时重定向，和302含义类似，但是期望客户端保持请求方法不变向新的地址发出请求。</li></ul><h4 id="4-4xx"><a href="#4-4xx" class="headerlink" title="4. 4xx"></a>4. 4xx</h4><ul><li>代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li><li><strong>400（错误请求）</strong>： 服务器不理解请求的语法。</li><li><strong>401（未授权）</strong>： 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li><li><strong>403（禁止）</strong>： 服务器拒绝请求。</li><li><strong>404（未找到）</strong>： 服务器找不到请求的网页。</li><li><strong>405（方法禁用）</strong>： 禁用请求中指定的方法。</li><li><strong>406（不接受）</strong>： 无法使用请求的内容特性响应请求的网页。</li><li><strong>407（需要代理授权）</strong>： 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</li><li><strong>408（请求超时）</strong>： 服务器等候请求时发生超时。</li></ul><h4 id="5-5xx"><a href="#5-5xx" class="headerlink" title="5. 5xx"></a>5. 5xx</h4><ul><li>表示服务器无法完成明显有效的请求。这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生。</li><li><strong>500（服务器内部错误）</strong>：服务器遇到错误，无法完成请求。</li><li><strong>501（尚未实施）</strong>：服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</li><li><strong>502（错误网关）</strong>： 服务器作为网关或代理，从上游服务器收到无效响应。</li><li><strong>503（服务不可用）</strong>： 服务器目前无法使用（由于超载或停机维护）。</li><li><strong>504（网关超时）</strong>： 服务器作为网关或代理，但是没有及时从上游服务器收到请求。</li><li><strong>505（HTTP 版本不受支持）</strong>： 服务器不支持请求中所用的 HTTP 协议版本。</li></ul><h3 id="二、HTTP状态码304是多好还是少好"><a href="#二、HTTP状态码304是多好还是少好" class="headerlink" title="二、HTTP状态码304是多好还是少好"></a>二、HTTP状态码304是多好还是少好</h3><ul><li>服务器为了提高网站访问速度，对之前访问的部分页面指定缓存机制，当客户端在此对这些页面进行请求，服务器会根据缓存内容判断页面与之前是否相同，若相同便直接返回304，此时客户端调用缓存内容，不必进行二次下载。状态码304不应该认为是一种错误，而是对客户端有缓存情况下服务端的一种响应。搜索引擎蜘蛛会更加青睐内容源更新频繁的网站。通过特定时间内对网站抓取返回的状态码来调节对该网站的抓取频次。若网站在一定时间内一直处于304的状态，那么蜘蛛可能会降低对网站的抓取次数。相反，若网站变化的频率非常之快，每次抓取都能获取新内容，那么日积月累的回访率也会提高。</li></ul><h3 id="三、同样是重定向，307、303、302的区别"><a href="#三、同样是重定向，307、303、302的区别" class="headerlink" title="三、同样是重定向，307、303、302的区别"></a>三、同样是重定向，307、303、302的区别</h3><ul><li>302是http1.0的协议状态码，在http1.1版本的时候为了细化302状态码⼜出来了两个303和307。</li><li>303明确表示客户端应当采⽤get⽅法获取资源，它会把POST请求变为GET请求进⾏重定向。 </li><li>307会遵照浏览器标准，不会从post变为get。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计网 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>WebSocket</title>
+      <link href="/2022/06/28/websocket/"/>
+      <url>/2022/06/28/websocket/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://www.runoob.com/html/html5-websocket.html">菜鸟教程-WebSocket实时通信</a></p></blockquote><h3 id="一、WebSocket概念"><a href="#一、WebSocket概念" class="headerlink" title="一、WebSocket概念"></a>一、WebSocket概念</h3><ul><li>WebSocket是HTML5提供的一种浏览器与服务器进行全双工通讯的网络技术，属于应用层协议。它基于TCP传输协议，并复用HTTP的握手通道。浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接， 并进行双向数据传输。WebSocket 的出现就解决了半双工通信的弊端。它最大的特点是：服务器可以向客户端主动推动消息，客户端也可以主动向服务器推送消息。</li></ul><h3 id="二、WebSocket原理"><a href="#二、WebSocket原理" class="headerlink" title="二、WebSocket原理"></a>二、WebSocket原理</h3><ul><li>客户端向 WebSocket 服务器通知（notify）一个带有所有接收者ID（recipients IDs）的事件（event），服务器接收后立即通知所有活跃的（active）客户端，只有ID在接收者ID序列中的客户端才会处理这个事件。</li></ul><h3 id="三、WebSocket特点"><a href="#三、WebSocket特点" class="headerlink" title="三、WebSocket特点"></a>三、WebSocket特点</h3><ul><li>支持双向通信，实时性更强，相对于HTTP请求需要等待客户端发起请求服务端才能响应，延迟明显更少</li><li>可以发送文本，也可以发送二进制数据</li><li>建立在TCP协议之上，服务端的实现比较容易</li><li>数据格式比较轻量，性能开销小，通信高效</li><li>没有同源限制，客户端可以与任意服务器通信</li><li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL</li><li>与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器</li></ul><h3 id="四、WebSocket应用场景"><a href="#四、WebSocket应用场景" class="headerlink" title="四、WebSocket应用场景"></a>四、WebSocket应用场景</h3><ul><li>弹幕</li><li>媒体聊天</li><li>协同编辑</li><li>基于位置的应用</li><li>体育实况更新</li><li>股票基金报价实时更新</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计网 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>浏览器渲染和原理</title>
       <link href="/2022/06/27/liu-lan-qi-xuan-ran-he-yuan-li/"/>
       <url>/2022/06/27/liu-lan-qi-xuan-ran-he-yuan-li/</url>
@@ -408,7 +483,7 @@
       <link href="/2022/05/24/js-zhi-xing-ji-zhi/"/>
       <url>/2022/05/24/js-zhi-xing-ji-zhi/</url>
       
-        <content type="html"><![CDATA[<h4 id="一、JS执行机制"><a href="#一、JS执行机制" class="headerlink" title="一、JS执行机制"></a>一、JS执行机制</h4><ul><li><p>JS语言有个特点是单线程，即同一时间只能做一件事。单线程就意味着，所有的任务需要排队，前一个任务结束，才会执行后一个任务，可能造成页面渲染不连贯。</p></li><li><p>为了解决这个问题，利用多核CPU的计算能力，允许JS脚本创建多个线程，即<strong>同步</strong>和<strong>异步</strong>。</p></li><li><p>同步任务：</p><ul><li><strong>同步任务都在主线程上执行，形成一个执行栈。</strong></li><li>前一个任务结束后再去执行下一个任务，程序的执行顺序与任务的排列顺序是一致的同步的。</li><li>比如做饭的同步做法，我们要烧水煮饭，等水开了，再去切菜，炒菜。</li></ul></li><li><p>异步任务：</p><ul><li><p><strong>通过回调函数实现的</strong>，异步任务相关回调函数添加到任务队列中(任务队列也称为消息队列)。</p></li><li><p>在做一件事的同时，还可以去处理其他的事情。</p></li><li><p>比如做饭的异步做法，在烧水的同时，利用这段时间，去切菜，炒菜。</p><ul><li>异步任务分类：<ul><li>1.普通事件，如click、resize等。</li><li>2.资源加载，如load、error等。</li><li>3.定时器，包括setTimeout、setInterval等。</li></ul></li></ul></li></ul></li><li><p><strong>同步和异步本质的区别：在这条”流水线”上各个流程的执行顺序不同。</strong></p></li><li><p><strong>JS执行机制步骤：</strong></p><ul><li><p>由于主线程不断地重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环，即event loop。</p></li><li><p><input disabled type="checkbox"> 先执行执行栈中的同步任务。</p></li><li><p><input disabled type="checkbox"> 然后异步任务(回调函数)放任务队列中。</p></li><li><p><input disabled type="checkbox"> 一旦执行栈中的所有同步任务执行完毕，系统就会按照次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</p></li></ul><img src="/2022/05/24/js-zhi-xing-ji-zhi/%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6.png" style="zoom:60%;"></li></ul>]]></content>
+        <content type="html"><![CDATA[<h4 id="一、JS执行机制"><a href="#一、JS执行机制" class="headerlink" title="一、JS执行机制"></a>一、JS执行机制</h4><ul><li><p>JS语言有个特点是单线程，即同一时间只能做一件事。单线程就意味着，所有的任务需要排队，前一个任务结束，才会执行后一个任务，可能造成页面渲染不连贯。</p></li><li><p>为了解决这个问题，利用多核CPU的计算能力，允许JS脚本创建多个线程，即<strong>同步</strong>和<strong>异步</strong>。</p></li><li><p>同步任务：</p><ul><li><strong>同步任务都在主线程上执行，形成一个执行栈。</strong></li><li>前一个任务结束后再去执行下一个任务，程序的执行顺序与任务的排列顺序是一致的同步的。</li><li>比如做饭的同步做法，我们要烧水煮饭，等水开了，再去切菜，炒菜。</li></ul></li><li><p>异步任务：</p><ul><li><p><strong>通过回调函数实现的</strong>，异步任务相关回调函数添加到任务队列中(任务队列也称为消息队列)。</p></li><li><p>在做一件事的同时，还可以去处理其他的事情。</p></li><li><p>比如做饭的异步做法，在烧水的同时，利用这段时间，去切菜，炒菜。</p><ul><li>异步任务分类：<ul><li>1.普通事件，如click、resize等。</li><li>2.资源加载，如load、error等。</li><li>3.定时器，包括setTimeout、setInterval等。</li></ul></li></ul></li></ul></li><li><p><strong>同步和异步本质的区别：在这条”流水线”上各个流程的执行顺序不同。</strong></p></li><li><p><strong>JS执行机制步骤：</strong></p><ul><li><p>由于主线程不断地重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环，即event loop。</p></li><li><p><input disabled="" type="checkbox"> 先执行执行栈中的同步任务。</p></li><li><p><input disabled="" type="checkbox"> 然后异步任务(回调函数)放任务队列中。</p></li><li><p><input disabled="" type="checkbox"> 一旦执行栈中的所有同步任务执行完毕，系统就会按照次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</p></li></ul><img src="/2022/05/24/js-zhi-xing-ji-zhi/%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6.png" style="zoom:60%;"></li></ul>]]></content>
       
       
       <categories>
