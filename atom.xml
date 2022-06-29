@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-06-28T05:03:39.647Z</updated>
+  <updated>2022-06-29T02:15:20.884Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP协议</title>
+    <link href="https://igdragon.top/2022/06/29/http-xie-yi/"/>
+    <id>https://igdragon.top/2022/06/29/http-xie-yi/</id>
+    <published>2022-06-29T01:16:47.000Z</published>
+    <updated>2022-06-29T02:15:20.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、HTTP和HTTPS协议的概念及区别&quot;&gt;&lt;a href=&quot;#一、HTTP和HTTPS协议的概念及区别&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机网络" scheme="https://igdragon.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计网" scheme="https://igdragon.top/tags/%E8%AE%A1%E7%BD%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Https协议</title>
@@ -507,31 +532,6 @@
     
     
     <category term="浏览器" scheme="https://igdragon.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS执行机制</title>
-    <link href="https://igdragon.top/2022/05/24/js-zhi-xing-ji-zhi/"/>
-    <id>https://igdragon.top/2022/05/24/js-zhi-xing-ji-zhi/</id>
-    <published>2022-05-24T10:49:47.000Z</published>
-    <updated>2022-06-27T02:43:20.979Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、JS执行机制&quot;&gt;&lt;a href=&quot;#一、JS执行机制&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="JavaScript" scheme="https://igdragon.top/tags/JavaScript/"/>
     
   </entry>
   
