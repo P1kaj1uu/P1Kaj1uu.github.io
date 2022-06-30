@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-06-29T02:15:20.884Z</updated>
+  <updated>2022-06-30T03:44:49.065Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象</title>
+    <link href="https://igdragon.top/2022/06/30/mian-xiang-dui-xiang/"/>
+    <id>https://igdragon.top/2022/06/30/mian-xiang-dui-xiang/</id>
+    <published>2022-06-30T02:39:19.000Z</published>
+    <updated>2022-06-30T03:44:49.065Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、理解面向对象&quot;&gt;&lt;a href=&quot;#一、理解面向对象&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://igdragon.top/categories/JavaScript/"/>
+    
+    
+    <category term="JS" scheme="https://igdragon.top/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原型</title>
+    <link href="https://igdragon.top/2022/06/30/yuan-xing/"/>
+    <id>https://igdragon.top/2022/06/30/yuan-xing/</id>
+    <published>2022-06-30T02:39:01.000Z</published>
+    <updated>2022-06-30T03:11:25.581Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、对原型、原型链的理解&quot;&gt;&lt;a href=&quot;#一、对原型、原型链的理解&quot; class=&quot;headerlink&quot; title=&quot;一、对原型、原型链的理解&quot;&gt;&lt;/a&gt;一、对原型、原型链的理解&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://igdragon.top/categories/JavaScript/"/>
+    
+    
+    <category term="JS" scheme="https://igdragon.top/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP协议</title>
@@ -364,7 +415,7 @@
     <link href="https://igdragon.top/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/"/>
     <id>https://igdragon.top/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/</id>
     <published>2022-06-02T05:55:41.000Z</published>
-    <updated>2022-06-02T06:45:35.113Z</updated>
+    <updated>2022-06-30T02:36:10.707Z</updated>
     
     
       
@@ -377,10 +428,10 @@
     
     
     
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="项目总结" scheme="https://igdragon.top/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"/>
     
     
-    <category term="笔记" scheme="https://igdragon.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="项目笔记" scheme="https://igdragon.top/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -439,7 +490,7 @@
     <link href="https://igdragon.top/2022/05/27/ban-ben-guan-li/"/>
     <id>https://igdragon.top/2022/05/27/ban-ben-guan-li/</id>
     <published>2022-05-27T01:25:21.000Z</published>
-    <updated>2022-05-27T01:50:12.445Z</updated>
+    <updated>2022-06-30T02:32:29.288Z</updated>
     
     
       
@@ -452,10 +503,10 @@
     
     
     
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端工程化" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
     
     
-    <category term="前端工程化" scheme="https://igdragon.top/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    <category term="版本管理" scheme="https://igdragon.top/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
@@ -464,7 +515,7 @@
     <link href="https://igdragon.top/2022/05/26/vuex/"/>
     <id>https://igdragon.top/2022/05/26/vuex/</id>
     <published>2022-05-26T12:15:58.000Z</published>
-    <updated>2022-05-26T13:01:51.511Z</updated>
+    <updated>2022-06-30T02:30:55.047Z</updated>
     
     
       
@@ -478,60 +529,10 @@
     
     
     
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="Vue" scheme="https://igdragon.top/categories/Vue/"/>
     
     
-    <category term="Vue" scheme="https://igdragon.top/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6</title>
-    <link href="https://igdragon.top/2022/05/25/es6/"/>
-    <id>https://igdragon.top/2022/05/25/es6/</id>
-    <published>2022-05-25T08:46:57.000Z</published>
-    <updated>2022-05-25T09:20:05.089Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、ES6概述&quot;&gt;&lt;a href=&quot;#一、ES6概述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="ES6" scheme="https://igdragon.top/tags/ES6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>垃圾回收与内存泄漏</title>
-    <link href="https://igdragon.top/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/"/>
-    <id>https://igdragon.top/2022/05/25/la-ji-hui-shou-yu-nei-cun-xie-lou/</id>
-    <published>2022-05-25T08:46:31.000Z</published>
-    <updated>2022-06-27T02:41:16.088Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、浏览器的垃圾回收机制&quot;&gt;&lt;a href=&quot;#一、浏览器的垃圾回收机制&quot; class=&quot;headerlink&quot; title=&quot;一、浏览器的垃圾回收机制&quot;&gt;&lt;/a&gt;一、浏览器的垃圾回收机制&lt;/h4&gt;&lt;h5 id=&quot;1-垃圾回收的概念&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="浏览器原理" scheme="https://igdragon.top/categories/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
-    
-    
-    <category term="浏览器" scheme="https://igdragon.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    <category term="Vuex" scheme="https://igdragon.top/tags/Vuex/"/>
     
   </entry>
   
