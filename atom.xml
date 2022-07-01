@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-06-30T03:44:49.065Z</updated>
+  <updated>2022-07-01T04:39:18.051Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,107 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue组件通信</title>
+    <link href="https://igdragon.top/2022/07/01/vue-zu-jian-tong-xin/"/>
+    <id>https://igdragon.top/2022/07/01/vue-zu-jian-tong-xin/</id>
+    <published>2022-07-01T03:59:47.000Z</published>
+    <updated>2022-07-01T04:39:18.051Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、Vue组件间的通信方式&quot;&gt;&lt;a href=&quot;#一、Vue组件间的通信方式&quot; class=&quot;headerlink&quot; title=&quot;一、Vue组件间的通信方式&quot;&gt;&lt;/a&gt;一、Vue组件间的通信方式&lt;/h3&gt;&lt;h4 id=&quot;1-父-gt-子组件通信&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue生命周期</title>
+    <link href="https://igdragon.top/2022/07/01/vue-sheng-ming-zhou-qi/"/>
+    <id>https://igdragon.top/2022/07/01/vue-sheng-ming-zhou-qi/</id>
+    <published>2022-07-01T03:46:00.000Z</published>
+    <updated>2022-07-01T03:58:55.296Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、Vue的生命周期&quot;&gt;&lt;a href=&quot;#一、Vue的生命周期&quot; class=&quot;headerlink&quot; title=&quot;一、Vue的生命周期&quot;&gt;&lt;/a&gt;一、Vue的生命周期&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Vue</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue路由</title>
+    <link href="https://igdragon.top/2022/07/01/vue-lu-you/"/>
+    <id>https://igdragon.top/2022/07/01/vue-lu-you/</id>
+    <published>2022-07-01T03:00:20.000Z</published>
+    <updated>2022-07-01T03:44:16.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、对前端路由的理解&quot;&gt;&lt;a href=&quot;#一、对前端路由的理解&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>虚拟DOM</title>
+    <link href="https://igdragon.top/2022/07/01/xu-ni-dom/"/>
+    <id>https://igdragon.top/2022/07/01/xu-ni-dom/</id>
+    <published>2022-07-01T02:58:31.000Z</published>
+    <updated>2022-07-01T03:14:38.697Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、对虚拟DOM的理解&quot;&gt;&lt;a href=&quot;#一、对虚拟DOM的理解&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="https://igdragon.top/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>面向对象</title>
@@ -432,107 +533,6 @@
     
     
     <category term="项目笔记" scheme="https://igdragon.top/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器本地存储</title>
-    <link href="https://igdragon.top/2022/05/27/liu-lan-qi-ben-di-cun-chu/"/>
-    <id>https://igdragon.top/2022/05/27/liu-lan-qi-ben-di-cun-chu/</id>
-    <published>2022-05-27T04:26:53.000Z</published>
-    <updated>2022-06-27T02:40:04.555Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、浏览器本地存储方式及使用场景&quot;&gt;&lt;a href=&quot;#一、浏览器本地存储方式及使用场景&quot; class=&quot;headerlink&quot; title=&quot;一、浏览器本地存储方式及使用场景&quot;&gt;&lt;/a&gt;一、浏览器本地存储方式及使用场景&lt;/h4&gt;&lt;h5</summary>
-        
-      
-    
-    
-    
-    <category term="浏览器原理" scheme="https://igdragon.top/categories/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
-    
-    
-    <category term="浏览器" scheme="https://igdragon.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器同源策略</title>
-    <link href="https://igdragon.top/2022/05/27/liu-lan-qi-tong-yuan-ce-lue/"/>
-    <id>https://igdragon.top/2022/05/27/liu-lan-qi-tong-yuan-ce-lue/</id>
-    <published>2022-05-27T04:26:31.000Z</published>
-    <updated>2022-06-27T02:40:44.607Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、同源政策&quot;&gt;&lt;a href=&quot;#一、同源政策&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="浏览器原理" scheme="https://igdragon.top/categories/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
-    
-    
-    <category term="浏览器" scheme="https://igdragon.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>版本管理</title>
-    <link href="https://igdragon.top/2022/05/27/ban-ben-guan-li/"/>
-    <id>https://igdragon.top/2022/05/27/ban-ben-guan-li/</id>
-    <published>2022-05-27T01:25:21.000Z</published>
-    <updated>2022-06-30T02:32:29.288Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、前端工程化&quot;&gt;&lt;a href=&quot;#一、前端工程化&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="前端工程化" scheme="https://igdragon.top/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
-    
-    
-    <category term="版本管理" scheme="https://igdragon.top/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vuex</title>
-    <link href="https://igdragon.top/2022/05/26/vuex/"/>
-    <id>https://igdragon.top/2022/05/26/vuex/</id>
-    <published>2022-05-26T12:15:58.000Z</published>
-    <updated>2022-06-30T02:30:55.047Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、Vuex的概述&quot;&gt;&lt;a href=&quot;#一、Vuex的概述&quot; class=&quot;headerlink&quot; title=&quot;一、Vuex的概述&quot;&gt;&lt;/a&gt;一、Vuex的概述&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;概念：专门在 Vue</summary>
-        
-      
-    
-    
-    
-    <category term="Vue" scheme="https://igdragon.top/categories/Vue/"/>
-    
-    
-    <category term="Vuex" scheme="https://igdragon.top/tags/Vuex/"/>
     
   </entry>
   
