@@ -6,7 +6,7 @@
   <link href="https://igdragon.top/atom.xml" rel="self"/>
   
   <link href="https://igdragon.top/"/>
-  <updated>2022-07-01T04:39:18.051Z</updated>
+  <updated>2022-07-02T03:07:56.495Z</updated>
   <id>https://igdragon.top/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>封装Axios和Day</title>
+    <link href="https://igdragon.top/2022/07/02/feng-zhuang-axios-he-day/"/>
+    <id>https://igdragon.top/2022/07/02/feng-zhuang-axios-he-day/</id>
+    <published>2022-07-02T01:47:39.000Z</published>
+    <updated>2022-07-02T03:07:56.495Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、封装axios&quot;&gt;&lt;a href=&quot;#一、封装axios&quot; class=&quot;headerlink&quot; title=&quot;一、封装axios&quot;&gt;&lt;/a&gt;一、封装axios&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;utils文件夹下的</summary>
+        
+      
+    
+    
+    
+    <category term="项目总结" scheme="https://igdragon.top/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"/>
+    
+    
+    <category term="项目笔记" scheme="https://igdragon.top/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ESLint使用</title>
+    <link href="https://igdragon.top/2022/07/02/eslint-shi-yong/"/>
+    <id>https://igdragon.top/2022/07/02/eslint-shi-yong/</id>
+    <published>2022-07-02T01:47:00.000Z</published>
+    <updated>2022-07-02T03:06:02.147Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一-ESLint介绍&quot;&gt;&lt;a href=&quot;#一-ESLint介绍&quot; class=&quot;headerlink&quot; title=&quot;一.ESLint介绍&quot;&gt;&lt;/a&gt;一.ESLint介绍&lt;/h2&gt;&lt;h3 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="ESLint" scheme="https://igdragon.top/categories/ESLint/"/>
+    
+    
+    <category term="ESLint" scheme="https://igdragon.top/tags/ESLint/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>异步编程</title>
+    <link href="https://igdragon.top/2022/07/02/yi-bu-bian-cheng/"/>
+    <id>https://igdragon.top/2022/07/02/yi-bu-bian-cheng/</id>
+    <published>2022-07-02T01:43:14.000Z</published>
+    <updated>2022-07-02T03:07:26.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？&quot;&gt;&lt;a href=&quot;#一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://igdragon.top/categories/JavaScript/"/>
+    
+    
+    <category term="JS" scheme="https://igdragon.top/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue组件通信</title>
@@ -450,89 +526,6 @@
     
     
     <category term="CSS" scheme="https://igdragon.top/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试心得二</title>
-    <link href="https://igdragon.top/2022/06/17/mian-shi-xin-de-er/"/>
-    <id>https://igdragon.top/2022/06/17/mian-shi-xin-de-er/</id>
-    <published>2022-06-17T13:13:11.000Z</published>
-    <updated>2022-06-17T13:45:41.651Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;###########################&lt;/li&gt;
-&lt;li&gt;###########################&lt;/li&gt;
-&lt;li&gt;###########################&lt;/li&gt;
-&lt;li&gt;####################</summary>
-        
-      
-    
-    
-    
-    <category term="实习" scheme="https://igdragon.top/categories/%E5%AE%9E%E4%B9%A0/"/>
-    
-    
-    <category term="面试" scheme="https://igdragon.top/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试心得(一)</title>
-    <link href="https://igdragon.top/2022/06/07/mian-shi-xin-de-yi/"/>
-    <id>https://igdragon.top/2022/06/07/mian-shi-xin-de-yi/</id>
-    <published>2022-06-07T11:13:19.000Z</published>
-    <updated>2022-06-08T00:40:02.630Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;###########################&lt;/li&gt;
-&lt;li&gt;###########################&lt;/li&gt;
-&lt;li&gt;###########################&lt;/li&gt;
-&lt;li&gt;####################</summary>
-        
-      
-    
-    
-    
-    <category term="实习" scheme="https://igdragon.top/categories/%E5%AE%9E%E4%B9%A0/"/>
-    
-    
-    <category term="面试" scheme="https://igdragon.top/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目优化打包部署</title>
-    <link href="https://igdragon.top/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/"/>
-    <id>https://igdragon.top/2022/06/02/xiang-mu-you-hua-da-bao-bu-shu/</id>
-    <published>2022-06-02T05:55:41.000Z</published>
-    <updated>2022-06-30T02:36:10.707Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;一、项目优化&quot;&gt;&lt;a href=&quot;#一、项目优化&quot; class=&quot;headerlink&quot; title=&quot;一、项目优化&quot;&gt;&lt;/a&gt;一、项目优化&lt;/h4&gt;&lt;h5 id=&quot;1-去掉打印console&quot;&gt;&lt;a href=&quot;#1-去掉打印console&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="项目总结" scheme="https://igdragon.top/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="项目笔记" scheme="https://igdragon.top/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
