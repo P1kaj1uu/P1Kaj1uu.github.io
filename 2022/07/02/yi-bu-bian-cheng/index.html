@@ -1,4 +1,11 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="keywords" content="异步编程, 个人网站,个人博客,前端,HTML,CSS,JavaScript,Jquery,Ajax,ES6,Webpack,Vue,微信小程序,性能优化,打包部署,实习,面试"><meta name="description" content="一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="异步编程, 个人网站,个人博客,前端,HTML,CSS,JavaScript,Jquery,Ajax,ES6,Webpack,Vue,微信小程序,性能优化,打包部署,实习,面试">
+    <meta name="description" content="一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？
 回调函数概念
 
 回调函数是一个作为变量传递给另一个函数的函数，它在主体函数执行完之后再执行
@@ -13,7 +20,150 @@
 
 回调函数可能的缺点
 
-"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="referrer" content="no-referrer-when-downgrade"><title>异步编程 | 不见水星记</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/awesome/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/materialize/materialize.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aos/aos.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/animate/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/lightGallery/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/css/matery.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/css/my.css"><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/jquery/jquery-3.6.0.min.js"></script><style lang="css">#loading-container{position:fixed;top:0;left:0;min-height:100vh;width:100vw;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#fff;text-align:center;-webkit-transition:opacity 1s ease;-moz-transition:opacity 1s ease;-o-transition:opacity 1s ease;transition:opacity 1s ease}.loading-image{width:120px;height:50px;transform:translate(-50%)}.loading-image div:nth-child(2){-webkit-animation:pacman-balls 1s linear 0s infinite;animation:pacman-balls 1s linear 0s infinite}.loading-image div:nth-child(3){-webkit-animation:pacman-balls 1s linear .33s infinite;animation:pacman-balls 1s linear .33s infinite}.loading-image div:nth-child(4){-webkit-animation:pacman-balls 1s linear .66s infinite;animation:pacman-balls 1s linear .66s infinite}.loading-image div:nth-child(5){-webkit-animation:pacman-balls 1s linear .99s infinite;animation:pacman-balls 1s linear .99s infinite}.loading-image div:first-of-type{width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_up .5s 0s infinite;animation:rotate_pacman_half_up .5s 0s infinite}.loading-image div:nth-child(2){width:0;height:0;border:25px solid #49b1f5;border-right-color:transparent;border-radius:25px;-webkit-animation:rotate_pacman_half_down .5s 0s infinite;animation:rotate_pacman_half_down .5s 0s infinite;margin-top:-50px}@-webkit-keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@keyframes rotate_pacman_half_up{0%{transform:rotate(270deg)}50%{transform:rotate(1turn)}to{transform:rotate(270deg)}}@-webkit-keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@keyframes rotate_pacman_half_down{0%{transform:rotate(90deg)}50%{transform:rotate(0)}to{transform:rotate(90deg)}}@-webkit-keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}@keyframes pacman-balls{75%{opacity:.7}to{transform:translate(-100px,-6.25px)}}.loading-image div:nth-child(3),.loading-image div:nth-child(4),.loading-image div:nth-child(5),.loading-image div:nth-child(6){background-color:#49b1f5;width:15px;height:15px;border-radius:100%;margin:2px;width:10px;height:10px;position:absolute;transform:translateY(-6.25px);top:25px;left:100px}.loading-text{margin-bottom:20vh;text-align:center;color:#2c3e50;font-size:2rem;box-sizing:border-box;padding:0 10px;text-shadow:0 2px 10px rgba(0,0,0,.2)}@media only screen and (max-width:500px){.loading-text{font-size:1.5rem}}.fadeout{opacity:0}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0)}}</style><script>(function () {
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>异步编程 | 不见水星记</title>
+    <!-- <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/favicon.ico"> -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
     const loaded = function(){
        setTimeout(function(){
             const loader = document.getElementById("loading-container");
@@ -25,7 +175,297 @@
         },1000);//强制显示loading page 1s  
     };
     loaded();
-})()</script><meta name="generator" content="Hexo 6.1.0"><style>.github-emoji{position:relative;display:inline-block;width:1.2em;min-height:1.2em;overflow:hidden;vertical-align:top;color:transparent}.github-emoji>span{position:relative;z-index:10}.github-emoji .fancybox,.github-emoji img{margin:0!important;padding:0!important;border:none!important;outline:0!important;text-decoration:none!important;user-select:none!important;cursor:auto!important}.github-emoji img{height:1.2em!important;width:1.2em!important;position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;user-select:none!important;cursor:auto!important}.github-emoji-fallback{color:inherit}.github-emoji-fallback img{opacity:0!important}</style><link rel="alternate" href="/atom.xml" title="不见水星记" type="application/atom+xml"></head><div id="loading-container"><p class="loading-text">玩命加载中 . . .</p><div class="loading-image"><div></div><div></div><div></div><div></div><div></div></div></div><body><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/logo.gif" class="logo-img" alt="LOGO"> <span class="logo-span">不见水星记</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home" style="zoom:.6"></i> <span>主页</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags" style="zoom:.6"></i> <span>标签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark" style="zoom:.6"></i> <span>分类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive" style="zoom:.6"></i> <span>时间轴</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle" style="zoom:.6"></i> <span>关于</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments" style="zoom:.6"></i> <span>留言板</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book" style="zoom:.6"></i> <span>友情链接</span></a></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索" style="zoom:.85"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/logo.gif" class="logo-img circle responsive-img"><div class="logo-name">不见水星记</div><div class="logo-desc">一个热爱前端的在校大学生的个人博客学习生活分享网站</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 主页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 时间轴</a></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言板</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li><li><div class="divider"></div></li><li><a href="https://github.com/P1kaj1uu" class="waves-effect waves-light" target="_blank"><i class="fab fa-github-square fa-fw"></i> GitHub</a></li></ul></div></div><style>.nav-transparent .github-corner{display:none!important}.github-corner{position:absolute;z-index:10;top:0;right:0;border:0;transform:scale(1.1)}.github-corner svg{color:#0f9d58;fill:#fff;height:64px;width:64px}.github-corner:hover .octo-arm{animation:a .56s ease-in-out}.github-corner .octo-arm{animation:none}@keyframes a{0%,to{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}</style><a href="https://github.com/P1kaj1uu" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="GitHub" data-position="left" data-delay="50"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"></path><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"></path></svg></a></nav></header><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/cryptojs/crypto-js.min.js"></script><script>(function() {
+})()
+ </script><meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="不见水星记" type="application/atom+xml">
+</head>
+ 
+
+  
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <header class="navbar-fixed">
+  <nav id="headNav" class="bg-color nav-transparent">
+    <div id="navContainer" class="nav-wrapper container">
+      <div class="brand-logo">
+        <a href="/" class="waves-effect waves-light">
+          
+          <img
+            src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/logo.gif"
+            class="logo-img"
+            alt="LOGO"
+          />
+          
+          <span class="logo-span">不见水星记</span>
+        </a>
+      </div>
+      
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>时间轴</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不见水星记</div>
+        <div class="logo-desc">
+            
+            一个热爱前端的在校大学生的个人博客学习生活分享网站
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			时间轴
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/P1kaj1uu" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>GitHub
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+    </div>
+
+     <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/P1kaj1uu" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="GitHub" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a> 
+  </nav>
+</header>
+ 
+<script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
         let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
@@ -33,13 +473,345 @@
                 location.href = '/';
             }
         }
-    })();</script><div class="bg-cover pd-header post-cover" style="background-image:url(https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/14.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><h1 class="description center-align post-title">异步编程</h1></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{width:345px;padding-left:20px}.toc-widget .toc-title{padding:35px 0 15px 17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content{padding-bottom:30px;overflow:auto}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px;position:absolute;right:23.5vw;display:block}#toc-content .is-active-link{color:#42b983}#floating-toc-btn{position:fixed;right:15px;bottom:76px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/JS/"><span class="chip bg-color">JS</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/JavaScript/" class="post-category">JavaScript</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i> 发布日期:&nbsp;&nbsp; 2022-07-02</div><div class="post-date info-break-policy"><i class="far fa-calendar-check fa-fw"></i> 更新日期:&nbsp;&nbsp; 2022-07-02</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i> 文章字数:&nbsp;&nbsp; 3.1k</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i> 阅读次数:&nbsp;&nbsp;<span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/prism/prism.css"><div class="card-content article-card-content"><div id="articleContent"><h3 id="一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？"><a href="#一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？" class="headerlink" title="一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？"></a>一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？</h3><ul><li><p><strong>回调函数概念</strong></p><ul><li>回调函数是一个作为变量传递给另一个函数的函数，它在主体函数执行完之后再执行</li></ul></li><li><p><strong>回调函数特点</strong></p><ul><li>你定义的</li><li>你没有调用</li><li>但是最终执行了</li></ul></li><li><p><strong>回调函数可能的缺点</strong></p><blockquote><p>层层嵌套的异步函数的操作叫做回调地狱</p></blockquote><ul><li>容易写出回调地狱</li><li>不能使用 try catch 捕获错误</li><li>不能直接 return</li></ul></li><li><p><strong>常见的回调函数</strong></p><ul><li>DOM事件回调函数</li><li>定时器回调函数</li><li>ajax请求回调函数</li><li>生命周期回调函数</li></ul></li><li><p><strong>如何解决回调地狱</strong></p><ul><li>promise</li><li>async / await</li><li>generator</li></ul></li></ul><h3 id="二、异步编程的实现方式"><a href="#二、异步编程的实现方式" class="headerlink" title="二、异步编程的实现方式"></a>二、异步编程的实现方式</h3><h4 id="1-回调函数的方式"><a href="#1-回调函数的方式" class="headerlink" title="1.回调函数的方式"></a>1.回调函数的方式</h4><ul><li>使用回调函数的方式有一个缺点是，多个回调函数嵌套的时候会造成回调函数地狱，上下两层的回调函数间的代码耦合度太高，不利于代码的可维护。</li></ul><h4 id="2-Promise的方式"><a href="#2-Promise的方式" class="headerlink" title="2.Promise的方式"></a>2.Promise的方式</h4><ul><li>使用 Promise 的方式可以将嵌套的回调函数作为链式调用。但是使用这种方法，有时会造成多个 then 的链式调用，可能会造成代码的语义不够明确。</li></ul><h4 id="3-generator的方式"><a href="#3-generator的方式" class="headerlink" title="3.generator的方式"></a>3.generator的方式</h4><ul><li>它可以在函数的执行过程中，将函数的执行权转移出去，在函数外部还可以将执行权转移回来。当遇到异步函数执行的时候，将函数执行权转移出去，当异步函数执行完毕时再将执行权给转移回来。因此在 generator 内部对于异步操作的方式，可以以同步的顺序来书写。使用这种方式需要考虑的问题是何时将函数的控制权转移回来，因此需要有一个自动执行 generator 的机制，比如说 co 模块等方式来实现 generator 的自动执行。</li></ul><h4 id="4-async函数的方式"><a href="#4-async函数的方式" class="headerlink" title="4.async函数的方式"></a>4.async函数的方式</h4><ul><li>async 函数是 generator 和 promise 实现的一个自动执行的语法糖，它内部自带执行器，当函数内部执行到一个 await 语句的时候，如果语句返回一个 promise 对象，那么函数将会等待 promise 对象的状态变为 resolve 后再继续向下执行。因此可以将异步逻辑，转化为同步的顺序来书写，并且这个函数可以自动执行。</li></ul><h3 id="三、对Promise的理解"><a href="#三、对Promise的理解" class="headerlink" title="三、对Promise的理解"></a>三、对Promise的理解</h3><blockquote><p>在构造 Promise 的时候，构造函数内部的代码是立即执行的</p></blockquote><ul><li><p>Promise本身是同步的立即执行函数，当在executor中执行 resolve() 或者 reject() 的时候, 此时是异步操作，也就是说promise中函数体内部的非异步操作正常顺序执行，resolve() 和 reject() 异步操作为promise实例对象的返回结果，这个返回结果后面的then或者catch需要用，所以then和catch要放到异步任务中等待所有同步任务执行完毕之后再按顺序（或者如果有定时器，需要遵循定时器的时间）执行。</p></li><li><p>Promise是异步编程的一种解决方案，它是一个对象，可以获取异步操作的消息，他的出现大大改善了异步编程的困境，避免了地狱回调，它比传统的解决方案回调函数和事件更合理和更强大。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p></li><li><p>Promise 对象是异步编程的一种解决方案，最早由社区提出。Promise 是一个构造函数，接收一个函数作为参数，返回一个 Promise 实例。一个 Promise 实例有三种状态，分别是pending、resolved 和 rejected，分别代表了进行中、已成功和已失败。实例的状态只能由 pending 转变 resolved 或者rejected 状态，并且状态一经改变，就凝固了，无法再被改变了。状态的改变是通过 resolve() 和 reject() 函数来实现的，可以在异步操作结束后调用这两个函数改变 Promise 实例的状态，它的原型上定义了一个 then 方法，使用这个 then 方法可以为两个状态的改变注册回调函数。这个回调函数属于微任务，会在本轮事件循环的末尾执行。</p></li><li><p><strong>Promise的实例有三个状态</strong></p><blockquote><p>当把一件事情交给promise时，它的状态就是Pending，任务完成了状态就变成了Resolved、没有完成失败了就变成了Rejected</p></blockquote><ul><li>Pending（进行中）</li><li>Resolved（已完成）</li><li>Rejected（已拒绝）</li></ul></li><li><p><strong>Promise的实例有两个过程</strong></p><blockquote><p>一旦从进行状态变成为其他状态就永远不能更改状态了</p></blockquote><ul><li>pending -&gt; fulfilled : Resolved（已完成）</li><li>pending -&gt; rejected：Rejected（已拒绝）</li></ul></li><li><p><strong>Promise的特点</strong></p><ul><li>对象的状态不受外界影响。promise对象代表一个异步操作，有三种状态，pending（进行中）、fulfilled（已成功）、rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态，这也是promise这个名字的由来——“承诺”。</li><li>一旦状态改变就不会再变，任何时候都可以得到这个结果。promise对象的状态改变，只有两种可能：从pending变为fulfilled，从pending变为rejected。这时就称为resolved（已定型）。如果改变已经发生了，你再对promise对象添加回调函数，也会立即得到这个结果。这与事件（event）完全不同，事件的特点是：如果你错过了它，再去监听是得不到结果的。</li></ul></li><li><p><strong>Promise的缺点</strong></p><ul><li>无法取消Promise，一旦新建它就会立即执行，无法中途取消</li><li>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部</li><li>当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）</li></ul></li></ul><h3 id="四、Promise解决了什么问题"><a href="#四、Promise解决了什么问题" class="headerlink" title="四、Promise解决了什么问题"></a>四、Promise解决了什么问题</h3><blockquote><p>解决了地狱回调的问题</p></blockquote><h3 id="五、Promise的基本用法"><a href="#五、Promise的基本用法" class="headerlink" title="五、Promise的基本用法"></a>五、Promise的基本用法</h3><h4 id="1-创建Promise对象"><a href="#1-创建Promise对象" class="headerlink" title="1.创建Promise对象"></a>1.创建Promise对象</h4><ul><li>new Promise() 方法</li><li>promise.resolve() 方法</li><li>promise.reject() 方法</li></ul><h4 id="2-Promise方法"><a href="#2-Promise方法" class="headerlink" title="2.Promise方法"></a>2.Promise方法</h4><ul><li>then() 方法</li><li>catch() 方法</li><li>all() 方法</li><li>race() 方法</li><li>finally() 方法</li></ul><h3 id="六、Promise-all和Promise-race的区别的使用场景"><a href="#六、Promise-all和Promise-race的区别的使用场景" class="headerlink" title="六、Promise.all和Promise.race的区别的使用场景"></a>六、Promise.all和Promise.race的区别的使用场景</h3><h4 id="1-Promise-all"><a href="#1-Promise-all" class="headerlink" title="1.Promise.all()"></a>1.Promise.all()</h4><ul><li>Promise.all可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。Promise.all中传入的是数组，返回的也是是数组，并且会将进行映射，传入的promise对象返回的值是按照顺序在数组中排列的，但是注意的是他们执行的顺序并不是按照顺序的，除非可迭代对象为空。需要注意，Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，这样当遇到发送多个请求并根据请求顺序获取和使用数据的场景，就可以使用Promise.all来解决。</li></ul><h4 id="2-Promise-race"><a href="#2-Promise-race" class="headerlink" title="2.Promise.race()"></a>2.Promise.race()</h4><ul><li>Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。当要做一件事，超过多长时间就不做了，可以用这个方法来解决。</li></ul><h3 id="七、对async-x2F-await-的理解"><a href="#七、对async-x2F-await-的理解" class="headerlink" title="七、对async/await 的理解"></a>七、对async/await 的理解</h3><ul><li>async/await其实是Generator 的语法糖，它能实现的效果都能用then链来实现，它是为优化then链而开发出来的。从字面上来看，async是“异步”的简写，await则为等待，所以很好理解async 用于申明一个 function 是异步的，而 await 用于等待一个异步方法执行完成。</li><li>async函数返回的是一个Promise 对象，如果在函数中 return 一个直接量，async 会把这个直接量通过 Promise.resolve() 封装成 Promise 对象，async 函数返回的是一个 Promise 对象，所以在最外层不能用 await 获取其返回值的情况下，当然应该用原来的方式：then() 链来处理这个 Promise 对象。</li></ul><h3 id="八、await-到底在等什么"><a href="#八、await-到底在等什么" class="headerlink" title="八、await 到底在等什么"></a>八、await 到底在等什么</h3><ul><li>await后面必须是异步函数， await是在等待一个异步函数完成，而这个异步函数返回值可能时promise对象，也可能是其他值，而await 等待的就是就是异步函数的返回值。</li><li>如果它等到的不是一个 Promise 对象，那 await 表达式的运算结果就是它等到的东西。</li><li>如果它等到的是一个 Promise 对象，await 就忙起来了，它会阻塞在async函数之中且await后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果。</li></ul><h3 id="九、async-x2F-await的优势"><a href="#九、async-x2F-await的优势" class="headerlink" title="九、async/await的优势"></a>九、async/await的优势</h3><ul><li>Promise 通过 then 链来解决多层回调的问题，而 async/await 来进一步优化promise的 then() 方法的多层调用。</li><li>Promise传递中间值⾮常麻烦，⽽async/await⼏乎是同步的写法，⾮常优雅 。</li><li>错误处理友好，async/await可以⽤成熟的try/catch，Promise的错误捕获⾮常冗余。</li><li>调试友好，Promise的调试很差，由于没有代码块，你不能在⼀个返回表达式的箭头函数中设置断点，如果你在⼀个.then代码块中使⽤调试器的步进(step-over)功能，调试器并不会进⼊后续的.then代码块，因为调试器只能跟踪同步代码的每⼀步。</li></ul><h3 id="十、async-x2F-await-如何捕获异常"><a href="#十、async-x2F-await-如何捕获异常" class="headerlink" title="十、async/await 如何捕获异常"></a>十、async/await 如何捕获异常</h3><blockquote><p>try…catch…</p></blockquote><h3 id="十一、setTimeout、Promise、Async-x2F-Await-的区别"><a href="#十一、setTimeout、Promise、Async-x2F-Await-的区别" class="headerlink" title="十一、setTimeout、Promise、Async/Await 的区别"></a>十一、setTimeout、Promise、Async/Await 的区别</h3><h4 id="1-setTimeout"><a href="#1-setTimeout" class="headerlink" title="1.setTimeout"></a>1.setTimeout</h4><ul><li><p>定时器是异步任务，会将定时器中的代码放到异步任务中，待页面中所有同步任务执行完毕之后再执行异步任务队列。</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 例如</span>
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">异步编程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-07-02
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.1k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？"><a href="#一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？" class="headerlink" title="一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？"></a>一、什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？</h3><ul>
+<li><p><strong>回调函数概念</strong></p>
+<ul>
+<li>回调函数是一个作为变量传递给另一个函数的函数，它在主体函数执行完之后再执行</li>
+</ul>
+</li>
+<li><p><strong>回调函数特点</strong></p>
+<ul>
+<li>你定义的</li>
+<li>你没有调用</li>
+<li>但是最终执行了</li>
+</ul>
+</li>
+<li><p><strong>回调函数可能的缺点</strong></p>
+<blockquote>
+<p>层层嵌套的异步函数的操作叫做回调地狱</p>
+</blockquote>
+<ul>
+<li>容易写出回调地狱</li>
+<li>不能使用 try catch 捕获错误</li>
+<li>不能直接 return</li>
+</ul>
+</li>
+<li><p><strong>常见的回调函数</strong></p>
+<ul>
+<li>DOM事件回调函数</li>
+<li>定时器回调函数</li>
+<li>ajax请求回调函数</li>
+<li>生命周期回调函数</li>
+</ul>
+</li>
+<li><p><strong>如何解决回调地狱</strong></p>
+<ul>
+<li>promise</li>
+<li>async / await</li>
+<li>generator</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、异步编程的实现方式"><a href="#二、异步编程的实现方式" class="headerlink" title="二、异步编程的实现方式"></a>二、异步编程的实现方式</h3><h4 id="1-回调函数的方式"><a href="#1-回调函数的方式" class="headerlink" title="1.回调函数的方式"></a>1.回调函数的方式</h4><ul>
+<li>使用回调函数的方式有一个缺点是，多个回调函数嵌套的时候会造成回调函数地狱，上下两层的回调函数间的代码耦合度太高，不利于代码的可维护。</li>
+</ul>
+<h4 id="2-Promise的方式"><a href="#2-Promise的方式" class="headerlink" title="2.Promise的方式"></a>2.Promise的方式</h4><ul>
+<li>使用 Promise 的方式可以将嵌套的回调函数作为链式调用。但是使用这种方法，有时会造成多个 then 的链式调用，可能会造成代码的语义不够明确。</li>
+</ul>
+<h4 id="3-generator的方式"><a href="#3-generator的方式" class="headerlink" title="3.generator的方式"></a>3.generator的方式</h4><ul>
+<li>它可以在函数的执行过程中，将函数的执行权转移出去，在函数外部还可以将执行权转移回来。当遇到异步函数执行的时候，将函数执行权转移出去，当异步函数执行完毕时再将执行权给转移回来。因此在 generator 内部对于异步操作的方式，可以以同步的顺序来书写。使用这种方式需要考虑的问题是何时将函数的控制权转移回来，因此需要有一个自动执行 generator 的机制，比如说 co 模块等方式来实现 generator 的自动执行。</li>
+</ul>
+<h4 id="4-async函数的方式"><a href="#4-async函数的方式" class="headerlink" title="4.async函数的方式"></a>4.async函数的方式</h4><ul>
+<li>async 函数是 generator 和 promise 实现的一个自动执行的语法糖，它内部自带执行器，当函数内部执行到一个 await 语句的时候，如果语句返回一个 promise 对象，那么函数将会等待 promise 对象的状态变为 resolve 后再继续向下执行。因此可以将异步逻辑，转化为同步的顺序来书写，并且这个函数可以自动执行。</li>
+</ul>
+<h3 id="三、对Promise的理解"><a href="#三、对Promise的理解" class="headerlink" title="三、对Promise的理解"></a>三、对Promise的理解</h3><blockquote>
+<p>在构造 Promise 的时候，构造函数内部的代码是立即执行的</p>
+</blockquote>
+<ul>
+<li><p>Promise本身是同步的立即执行函数，当在executor中执行 resolve() 或者 reject() 的时候, 此时是异步操作，也就是说promise中函数体内部的非异步操作正常顺序执行，resolve() 和 reject() 异步操作为promise实例对象的返回结果，这个返回结果后面的then或者catch需要用，所以then和catch要放到异步任务中等待所有同步任务执行完毕之后再按顺序（或者如果有定时器，需要遵循定时器的时间）执行。</p>
+</li>
+<li><p>Promise是异步编程的一种解决方案，它是一个对象，可以获取异步操作的消息，他的出现大大改善了异步编程的困境，避免了地狱回调，它比传统的解决方案回调函数和事件更合理和更强大。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
+</li>
+<li><p>Promise 对象是异步编程的一种解决方案，最早由社区提出。Promise 是一个构造函数，接收一个函数作为参数，返回一个 Promise 实例。一个 Promise 实例有三种状态，分别是pending、resolved 和 rejected，分别代表了进行中、已成功和已失败。实例的状态只能由 pending 转变 resolved 或者rejected 状态，并且状态一经改变，就凝固了，无法再被改变了。状态的改变是通过 resolve() 和 reject() 函数来实现的，可以在异步操作结束后调用这两个函数改变 Promise 实例的状态，它的原型上定义了一个 then 方法，使用这个 then 方法可以为两个状态的改变注册回调函数。这个回调函数属于微任务，会在本轮事件循环的末尾执行。</p>
+</li>
+<li><p><strong>Promise的实例有三个状态</strong></p>
+<blockquote>
+<p>当把一件事情交给promise时，它的状态就是Pending，任务完成了状态就变成了Resolved、没有完成失败了就变成了Rejected</p>
+</blockquote>
+<ul>
+<li>Pending（进行中）</li>
+<li>Resolved（已完成）</li>
+<li>Rejected（已拒绝）</li>
+</ul>
+</li>
+<li><p><strong>Promise的实例有两个过程</strong></p>
+<blockquote>
+<p>一旦从进行状态变成为其他状态就永远不能更改状态了</p>
+</blockquote>
+<ul>
+<li>pending -&gt; fulfilled : Resolved（已完成）</li>
+<li>pending -&gt; rejected：Rejected（已拒绝）</li>
+</ul>
+</li>
+<li><p><strong>Promise的特点</strong></p>
+<ul>
+<li>对象的状态不受外界影响。promise对象代表一个异步操作，有三种状态，pending（进行中）、fulfilled（已成功）、rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态，这也是promise这个名字的由来——“承诺”。</li>
+<li>一旦状态改变就不会再变，任何时候都可以得到这个结果。promise对象的状态改变，只有两种可能：从pending变为fulfilled，从pending变为rejected。这时就称为resolved（已定型）。如果改变已经发生了，你再对promise对象添加回调函数，也会立即得到这个结果。这与事件（event）完全不同，事件的特点是：如果你错过了它，再去监听是得不到结果的。</li>
+</ul>
+</li>
+<li><p><strong>Promise的缺点</strong></p>
+<ul>
+<li>无法取消Promise，一旦新建它就会立即执行，无法中途取消</li>
+<li>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部</li>
+<li>当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）</li>
+</ul>
+</li>
+</ul>
+<h3 id="四、Promise解决了什么问题"><a href="#四、Promise解决了什么问题" class="headerlink" title="四、Promise解决了什么问题"></a>四、Promise解决了什么问题</h3><blockquote>
+<p>解决了地狱回调的问题</p>
+</blockquote>
+<h3 id="五、Promise的基本用法"><a href="#五、Promise的基本用法" class="headerlink" title="五、Promise的基本用法"></a>五、Promise的基本用法</h3><h4 id="1-创建Promise对象"><a href="#1-创建Promise对象" class="headerlink" title="1.创建Promise对象"></a>1.创建Promise对象</h4><ul>
+<li>new Promise() 方法</li>
+<li>promise.resolve() 方法</li>
+<li>promise.reject() 方法</li>
+</ul>
+<h4 id="2-Promise方法"><a href="#2-Promise方法" class="headerlink" title="2.Promise方法"></a>2.Promise方法</h4><ul>
+<li>then() 方法</li>
+<li>catch() 方法</li>
+<li>all() 方法</li>
+<li>race() 方法</li>
+<li>finally() 方法</li>
+</ul>
+<h3 id="六、Promise-all和Promise-race的区别的使用场景"><a href="#六、Promise-all和Promise-race的区别的使用场景" class="headerlink" title="六、Promise.all和Promise.race的区别的使用场景"></a>六、Promise.all和Promise.race的区别的使用场景</h3><h4 id="1-Promise-all"><a href="#1-Promise-all" class="headerlink" title="1.Promise.all()"></a>1.Promise.all()</h4><ul>
+<li>Promise.all可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。Promise.all中传入的是数组，返回的也是是数组，并且会将进行映射，传入的promise对象返回的值是按照顺序在数组中排列的，但是注意的是他们执行的顺序并不是按照顺序的，除非可迭代对象为空。需要注意，Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，这样当遇到发送多个请求并根据请求顺序获取和使用数据的场景，就可以使用Promise.all来解决。</li>
+</ul>
+<h4 id="2-Promise-race"><a href="#2-Promise-race" class="headerlink" title="2.Promise.race()"></a>2.Promise.race()</h4><ul>
+<li>Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。当要做一件事，超过多长时间就不做了，可以用这个方法来解决。</li>
+</ul>
+<h3 id="七、对async-x2F-await-的理解"><a href="#七、对async-x2F-await-的理解" class="headerlink" title="七、对async/await 的理解"></a>七、对async/await 的理解</h3><ul>
+<li>async/await其实是Generator 的语法糖，它能实现的效果都能用then链来实现，它是为优化then链而开发出来的。从字面上来看，async是“异步”的简写，await则为等待，所以很好理解async 用于申明一个 function 是异步的，而 await 用于等待一个异步方法执行完成。</li>
+<li>async函数返回的是一个Promise 对象，如果在函数中 return 一个直接量，async 会把这个直接量通过 Promise.resolve() 封装成 Promise 对象，async 函数返回的是一个 Promise 对象，所以在最外层不能用 await 获取其返回值的情况下，当然应该用原来的方式：then() 链来处理这个 Promise 对象。</li>
+</ul>
+<h3 id="八、await-到底在等什么"><a href="#八、await-到底在等什么" class="headerlink" title="八、await 到底在等什么"></a>八、await 到底在等什么</h3><ul>
+<li>await后面必须是异步函数， await是在等待一个异步函数完成，而这个异步函数返回值可能时promise对象，也可能是其他值，而await 等待的就是就是异步函数的返回值。</li>
+<li>如果它等到的不是一个 Promise 对象，那 await 表达式的运算结果就是它等到的东西。</li>
+<li>如果它等到的是一个 Promise 对象，await 就忙起来了，它会阻塞在async函数之中且await后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果。</li>
+</ul>
+<h3 id="九、async-x2F-await的优势"><a href="#九、async-x2F-await的优势" class="headerlink" title="九、async/await的优势"></a>九、async/await的优势</h3><ul>
+<li>Promise 通过 then 链来解决多层回调的问题，而 async/await 来进一步优化promise的 then() 方法的多层调用。</li>
+<li>Promise传递中间值⾮常麻烦，⽽async/await⼏乎是同步的写法，⾮常优雅 。</li>
+<li>错误处理友好，async/await可以⽤成熟的try/catch，Promise的错误捕获⾮常冗余。</li>
+<li>调试友好，Promise的调试很差，由于没有代码块，你不能在⼀个返回表达式的箭头函数中设置断点，如果你在⼀个.then代码块中使⽤调试器的步进(step-over)功能，调试器并不会进⼊后续的.then代码块，因为调试器只能跟踪同步代码的每⼀步。</li>
+</ul>
+<h3 id="十、async-x2F-await-如何捕获异常"><a href="#十、async-x2F-await-如何捕获异常" class="headerlink" title="十、async/await 如何捕获异常"></a>十、async/await 如何捕获异常</h3><blockquote>
+<p>try…catch…</p>
+</blockquote>
+<h3 id="十一、setTimeout、Promise、Async-x2F-Await-的区别"><a href="#十一、setTimeout、Promise、Async-x2F-Await-的区别" class="headerlink" title="十一、setTimeout、Promise、Async/Await 的区别"></a>十一、setTimeout、Promise、Async/Await 的区别</h3><h4 id="1-setTimeout"><a href="#1-setTimeout" class="headerlink" title="1.setTimeout"></a>1.setTimeout</h4><ul>
+<li><p>定时器是异步任务，会将定时器中的代码放到异步任务中，待页面中所有同步任务执行完毕之后再执行异步任务队列。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 例如</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script start'</span><span class="token punctuation">)</span>
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setTimeout'</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script end'</span><span class="token punctuation">)</span>
-<span class="token comment">// 输出顺序：script start --&gt; script end --&gt; setTimeout</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><h4 id="2-Promise"><a href="#2-Promise" class="headerlink" title="2.Promise"></a>2.Promise</h4><ul><li><p>Promise本身是同步的立即执行函数， 当在executor中执行resolve或者reject的时候, 此时是异步操作，会先执行promise中的同步任务，然后执行promise之外的同步操作（按照书写代码的先后顺序），而promise.then( )视为异步任务的方法，会加入到任务队列中，等待全部同步任务执行完毕再按顺序执行异步任务队列中的任务，promise后面的定时器也是异步函数，也要加入到异步函数队列中，即使定时器是0s，而且按照代码书写先后顺序，在任务队列中会排到then后面。</p></li><li><p>new Promise()：类似于同步。先微任务( Promise、async / await )再宏任务( 定时器、Ajax、DOM事件 )</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 例如</span>
+<span class="token comment">// 输出顺序：script start --&gt; script end --&gt; setTimeout</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="2-Promise"><a href="#2-Promise" class="headerlink" title="2.Promise"></a>2.Promise</h4><ul>
+<li><p>Promise本身是同步的立即执行函数， 当在executor中执行resolve或者reject的时候, 此时是异步操作，会先执行promise中的同步任务，然后执行promise之外的同步操作（按照书写代码的先后顺序），而promise.then( )视为异步任务的方法，会加入到任务队列中，等待全部同步任务执行完毕再按顺序执行异步任务队列中的任务，promise后面的定时器也是异步函数，也要加入到异步函数队列中，即使定时器是0s，而且按照代码书写先后顺序，在任务队列中会排到then后面。</p>
+</li>
+<li><p>new Promise()：类似于同步。先微任务( Promise、async / await )再宏任务( 定时器、Ajax、DOM事件 )</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 例如</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script start'</span><span class="token punctuation">)</span>
 <span class="token keyword">let</span> promise1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise1'</span><span class="token punctuation">)</span>
@@ -52,7 +824,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setTimeout'</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script end'</span><span class="token punctuation">)</span>
-<span class="token comment">// 输出顺序：script start --&gt; promise1 --&gt; promise1 end --&gt; script end --&gt; promise2 --&gt; setTimeout</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><h4 id="3-async-x2F-await"><a href="#3-async-x2F-await" class="headerlink" title="3.async / await"></a>3.async / await</h4><ul><li><p>async函数为异步函数，返回的也是promise对象，所以说async函数也是立即执行函数，他里面的代码会按照顺序相继执行；但当有异步任务，且异步任务前面有await时，这时await若未等到异步任务的结果，会阻碍async里面且在await下面的代码（await后面紧跟着的异步任务会正常执行），执行async函数下面的代码直至await等到结果之后再执行它下面在async函数中的代码。</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 例如</span>
+<span class="token comment">// 输出顺序：script start --&gt; promise1 --&gt; promise1 end --&gt; script end --&gt; promise2 --&gt; setTimeout</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="3-async-x2F-await"><a href="#3-async-x2F-await" class="headerlink" title="3.async / await"></a>3.async / await</h4><ul>
+<li><p>async函数为异步函数，返回的也是promise对象，所以说async函数也是立即执行函数，他里面的代码会按照顺序相继执行；但当有异步任务，且异步任务前面有await时，这时await若未等到异步任务的结果，会阻碍async里面且在await下面的代码（await后面紧跟着的异步任务会正常执行），执行async函数下面的代码直至await等到结果之后再执行它下面在async函数中的代码。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 例如</span>
 <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">async1</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async1 start'</span><span class="token punctuation">)</span>
     <span class="token keyword">await</span> <span class="token function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -64,14 +840,244 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script start'</span><span class="token punctuation">)</span>
 <span class="token function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'script end'</span><span class="token punctuation">)</span>
-<span class="token comment">// 输出顺序：script start --&gt; async1 start --&gt; async2 --&gt; script end --&gt; async1 end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><h3 id="十二、并发与并行的区别"><a href="#十二、并发与并行的区别" class="headerlink" title="十二、并发与并行的区别"></a>十二、并发与并行的区别</h3><h4 id="1-并发"><a href="#1-并发" class="headerlink" title="1.并发"></a>1.并发</h4><ul><li>并发是宏观概念，在一段时间内通过任务间的切换完成了这些任务，这种情况就可以称之为并发（指在同一时刻只能有一条指令执行，但多个进程指令被快速的轮换执行）。</li><li><img src="/2022/07/02/yi-bu-bian-cheng/%E5%B9%B6%E5%8F%91.png" style="zoom:70%"></li></ul><h4 id="2-并行"><a href="#2-并行" class="headerlink" title="2.并行"></a>2.并行</h4><ul><li>并行是微观概念，指在同一时刻，有多条指令在多个处理器上同时执行。同时完成多个任务的情况就可以称之为并行。</li><li><img src="/2022/07/02/yi-bu-bian-cheng/%E5%B9%B6%E8%A1%8C.png" style="zoom:70%"></li></ul></div><hr><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者:</i></span> <span class="reprint-info"><a href="/about" rel="external nofollow noreferrer">P1Kaj1uu</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接:</i></span> <span class="reprint-info"><a href="https://igdragon.top/2022/07/02/yi-bu-bian-cheng/">https://igdragon.top/2022/07/02/yi-bu-bian-cheng/</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明:</i></span> <span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="/about" target="_blank">P1Kaj1uu</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
+<span class="token comment">// 输出顺序：script start --&gt; async1 start --&gt; async2 --&gt; script end --&gt; async1 end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="十二、并发与并行的区别"><a href="#十二、并发与并行的区别" class="headerlink" title="十二、并发与并行的区别"></a>十二、并发与并行的区别</h3><h4 id="1-并发"><a href="#1-并发" class="headerlink" title="1.并发"></a>1.并发</h4><ul>
+<li>并发是宏观概念，在一段时间内通过任务间的切换完成了这些任务，这种情况就可以称之为并发（指在同一时刻只能有一条指令执行，但多个进程指令被快速的轮换执行）。</li>
+<li><img src="/2022/07/02/yi-bu-bian-cheng/%E5%B9%B6%E5%8F%91.png" style="zoom:70%;"></li>
+</ul>
+<h4 id="2-并行"><a href="#2-并行" class="headerlink" title="2.并行"></a>2.并行</h4><ul>
+<li>并行是微观概念，指在同一时刻，有多条指令在多个处理器上同时执行。同时完成多个任务的情况就可以称之为并行。</li>
+<li><img src="/2022/07/02/yi-bu-bian-cheng/%E5%B9%B6%E8%A1%8C.png" style="zoom:70%;"></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">P1Kaj1uu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://igdragon.top/2022/07/02/yi-bu-bian-cheng/">https://igdragon.top/2022/07/02/yi-bu-bian-cheng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">P1Kaj1uu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
         let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
       function navToReprintStatement() {
         $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }</script><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/JS/"><span class="chip bg-color">JS</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.4rem;line-height:38px}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22ab38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019fe8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script></div></div><div class="livere-card card" data-aos="fade-up"><div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTgzNy8zMjMwMQ=="><script>(function (d, s) {
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTgzNy8zMjMwMQ==">
+        <script type="text/javascript">
+            (function (d, s) {
                 let j, e = d.getElementsByTagName(s)[0];
                 if (typeof LivereTower === 'function') {
                     return;
@@ -82,7 +1088,171 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 j.async = true;
 
                 e.parentNode.insertBefore(j, e);
-            })(document, 'script');</script><noscript>为正常使用来必力评论功能请激活JavaScript。</noscript></div></div><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i> &nbsp;上一篇</div><div class="card"><a href="/2022/07/02/eslint-shi-yong/"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/14.jpg" class="responsive-img" alt="ESLint使用"> <span class="card-title">ESLint使用</span></div></a><div class="card-content article-content"><div class="summary block-with-text"></div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i> 2022-07-02</span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/ESLint/" class="post-category">ESLint</a></span></div></div><div class="card-action article-tags"><a href="/tags/ESLint/"><span class="chip bg-color">ESLint</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/2022/07/01/vue-zu-jian-tong-xin/"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/14.jpg" class="responsive-img" alt="Vue组件通信"> <span class="card-title">Vue组件通信</span></div></a><div class="card-content article-content"><div class="summary block-with-text"></div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i> 2022-07-01</span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/Vue/" class="post-category">Vue</a></span></div></div><div class="card-action article-tags"><a href="/tags/Vue/"><span class="chip bg-color">Vue</span></a></div></div></div></div></article></div><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeBlockFuction.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeLang.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeCopy.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeShrink.js"></script></div><div id="toc-aside" class="expanded col l3 hide-on-med-and-down"><div class="toc-widget card" style="background-color:#fff"><div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn" class="hide-on-med-and-down"><a class="btn-floating btn-large bg-color"><i class="fas fa-list-ul"></i></a></div><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/07/02/eslint-shi-yong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/14.jpg" class="responsive-img" alt="ESLint使用">
+                        
+                        <span class="card-title">ESLint使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ESLint/" class="post-category">
+                                    ESLint
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ESLint/">
+                        <span class="chip bg-color">ESLint</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/07/01/vue-zu-jian-tong-xin/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/medias/14.jpg" class="responsive-img" alt="Vue组件通信">
+                        
+                        <span class="card-title">Vue组件通信</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
         tocbot.init({
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
@@ -140,4 +1310,333 @@ console<span class="token punctuation">.</span><span class="token function">log<
             fixPostCardWidth('artDetail', 'prenext-posts');
         });
         
-    });</script></main><footer class="page-footer bg-color"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aplayer/APlayer.min.css"><style>.aplayer .aplayer-lrc p{display:none;font-size:12px;font-weight:700;line-height:16px!important}.aplayer .aplayer-lrc p.aplayer-lrc-current{display:none;font-size:15px;color:#42b983}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><div><div class="row"><meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="7347146516" fixed="true" autoplay theme="#42b983" loop order="random" preload="auto" volume="0.7" list-folded="true"></meting-js></div></div><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aplayer/Meting.min.js"></script><div class="container row center-align" style="margin-bottom:0!important"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">2022</span> <a href="/about" target="_blank">P1Kaj1uu</a> |&nbsp;Powered by&nbsp;<a href="http://igdragon.top/" target="_blank">P1Kaj1uu</a> |&nbsp;Source&nbsp;<a href="https://github.com/P1kaj1uu?tab=repositories" target="_blank">P1Kaj1uu</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">46.6k</span> <span id="busuanzi_container_site_pv">&nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span></span> <span id="busuanzi_container_site_uv">&nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span></span><br><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/P1kaj1uu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i></a><a href="mailto:891523233@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i></a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=891523233" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 891523233" data-position="top" data-delay="50"><i class="fab fa-qq"></i></a><a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50"><i class="fas fa-rss"></i></a></div></div></footer><div class="progress-bar"></div><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i> &nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script>$(function(){!function(t,a,s){"use strict";$.ajax({url:t,dataType:"xml",success:function(t){var e=$("entry",t).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get(),r=document.getElementById(a),n=document.getElementById(s);r.addEventListener("input",function(){var f='<ul class="search-result-list">',m=this.value.trim().toLowerCase().split(/[\s\-]+/);n.innerHTML="",this.value.trim().length<=0||(e.forEach(function(t){var r=!0,n=t.title.trim().toLowerCase(),a=t.content.trim().replace(/<[^>]+>/g,"").toLowerCase(),e=t.url;e=0===e.indexOf("/")?t.url:"/"+e;var s=-1,i=-1,l=-1;if(""!==n&&""!==a&&m.forEach(function(t,e){s=n.indexOf(t),i=a.indexOf(t),s<0&&i<0?r=!1:(i<0&&(i=0),0===e&&(l=i))}),r){f+="<li><a href='"+e+"' class='search-result-title'>"+n+"</a>";var c=t.content.trim().replace(/<[^>]+>/g,"");if(0<=l){var u=l-20,o=l+80;u<0&&(u=0),0===u&&(o=100),o>c.length&&(o=c.length);var h=c.substr(u,o);m.forEach(function(t){var e=new RegExp(t,"gi");h=h.replace(e,'<em class="search-keyword">'+t+"</em>")}),f+='<p class="search-result">'+h+"...</p>"}f+="</li>"}}),f+="</ul>",n.innerHTML=f)})}})}("/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="/js/click_show_text.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/materialize/materialize.min.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/masonry/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aos/aos.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/scrollprogress/scrollProgress.min.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/js/matery.js"></script><script>var windowWidth=$(window).width();768<windowWidth&&document.write('<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/sakura.js"><\/script>')</script><script src="https://ssl.captcha.qq.com/TCaptcha.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/TencentCaptcha.js"></script><button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/clicklove.js" async></script><script async src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/instantpage/instantpage.js" type="module"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,log:!1,model:{jsonPath:"/live2dw/assets/z16.model.json"},display:{position:"left",width:130,height:280},mobile:{show:!0,react:{opacity:.7}}})</script></body></html>
+    });
+</script>
+
+    
+
+</main>
+
+
+ <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="7347146516"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aplayer/Meting.min.js"></script>
+ 
+
+  <div
+    class="container row center-align"
+    style="margin-bottom: 0px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2022</span>
+      
+      <a href="/about" target="_blank"
+        >P1Kaj1uu</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="http://igdragon.top/" target="_blank"
+        >P1Kaj1uu</a
+      >
+      |&nbsp;Source&nbsp;<a
+        href="https://github.com/P1kaj1uu?tab=repositories"
+        target="_blank"
+        >P1Kaj1uu</a
+      >
+      <br />
+       &nbsp;<i
+        class="fas fa-chart-area"
+      ></i
+      >&nbsp;站点总字数:&nbsp;<span class="white-color"
+        >46.6k</span
+      >
+         
+       
+      <span id="busuanzi_container_site_pv">
+        &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+        <span id="busuanzi_value_site_pv" class="white-color"></span>
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+        <span id="busuanzi_value_site_uv" class="white-color"></span>
+      </span>
+      
+      <br />
+
+      <!-- 运行天数提醒. -->
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+    <a href="https://github.com/P1kaj1uu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:891523233@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=891523233" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 891523233" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+ <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+ <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+  <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+</div>
+
+
+    <!--单击显示文字-->
+    <script type="text/javascript" src="/js/click_show_text.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/js/matery.js"></script>
+
+     
+
+    <script type="text/javascript">
+      // 只在桌面版网页启用特效
+      var windowWidth = $(window).width();
+      if (windowWidth > 768) {
+        document.write(
+          '<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/sakura.js"><\/script>'
+        );
+      }
+    </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/TencentCaptcha.js"></script>
+    <button
+      id="TencentCaptcha"
+      data-appid="xxxxxxxxxx"
+      data-cbfn="callback"
+      type="button"
+      hidden
+    ></button>
+     <!-- Baidu Analytics -->
+ <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+ 
+    <script
+      src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/clicklove.js"
+      async="async"
+    ></script>
+     
+    <script
+      async
+      src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/others/busuanzi.pure.mini.js"
+    ></script>
+      
+
+    <!--腾讯兔小巢-->
+        
+    <script
+      src="https://cdn.jsdelivr.net/gh/P1Kaj1uu/P1Kaj1uu.github.io/libs/instantpage/instantpage.js"
+      type="module"
+    ></script>
+    
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":130,"height":280},"mobile":{"show":true,"react":{"opacity":0.7}}});</script></body>
+</html>
